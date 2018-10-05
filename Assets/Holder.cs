@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class Holder : MonoBehaviour {
 
-    static Holder instance;
-	
+
+    public float Vitesse = 0;
+    public static Holder instance;
+
+    private void Start()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     public static Holder getInstance()
     {
         if (instance == null)
         {
-            GameObject gob = new GameObject();
-            instance = gob.AddComponent<Holder>();
+            new GameObject().AddComponent<Holder>();
         }
         return instance;
     }

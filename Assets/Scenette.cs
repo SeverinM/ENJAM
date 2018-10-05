@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Scenette : MonoBehaviour {
 
+    public delegate void voidFunc();
+    public event voidFunc Sucess;
+    public event voidFunc Fail;
+
 	// Use this for initialization
 	void Start () {
 		

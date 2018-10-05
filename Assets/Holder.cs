@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Holder : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    static Holder instance;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public static Holder getInstance()
+    {
+        if (instance == null)
+        {
+            GameObject gob = new GameObject();
+            instance = gob.AddComponent<Holder>();
+        }
+        return instance;
+    }
 }

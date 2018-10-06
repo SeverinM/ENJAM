@@ -50,22 +50,24 @@ public class Scenette : MonoBehaviour {
         sizeCurrentSqc = currentSequence.Count;
         if (currentSequence.Count != 0)
         {
+            List<KeyCode> forbiddenKeys = new List<KeyCode>();
             foreach (DataInput dI in currentSequence)
             {
-                if (Input.GetKeyDown(dI.kc))
+                if (Input.GetKeyDown(dI.kc) && !forbiddenKeys.Contains(dI.kc))
                 {
                     dI.tFX.getFinish();
                     StartCoroutine(deleteThisOneFromCurrentSequence(dI));
+                    forbiddenKeys.Add(dI.kc);
                 }
             }
 
         }
         else if( !finish )
         {
-            for (int random = 0; random < Random.Range(3,5); random++)
+            for (int random = 0; random < Random.Range(3,8); random++)
             {
                 currentSequence.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-                _debug_indexPos = (_debug_indexPos == 4 ? 0 : _debug_indexPos);
+                _debug_indexPos = (_debug_indexPos == (positionForTouche.Count-1) ? 0 : _debug_indexPos);
             }
             LaunchNextSequence();
         }
@@ -77,6 +79,14 @@ public class Scenette : MonoBehaviour {
                 done = true;
                 Sucess();
             }
+        }
+
+
+
+        ////TOD DO DEBUG NOPE
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
     int _debug_DBG = 0;

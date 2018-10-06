@@ -31,6 +31,13 @@ public class Holder : MonoBehaviour {
     RectTransform rectHonor;
     float xDiffHonor;
 
+    Queue<Scenette> allScenette;
+    Scenette currentScenette;
+
+    public GameObject prefabBandeauWin;
+    public GameObject prefabBandeauLose;
+    GameObject gobBandeau;
+
     private void Start()
     {
         gobTimer = Instantiate(prefabTimer, this.transform) as GameObject;
@@ -61,10 +68,33 @@ public class Holder : MonoBehaviour {
 
     }
 
+    public void nextScene()
+    {
+        if (currentScenette != null)
+        {
+            currentScenette.Sucess -= succ;
+            currentScenette.Fail -= fail;
+        }
+        currentScenette = allScenette.Dequeue();
+        currentScenette.Sucess += succ;
+        currentScenette.Fail += succ;
+    }
+
+    public void succ()
+    {
+        gobBandeau = Instantiate(prefabBandeauWin);
+    }
+
+    public void fail()
+    {
+        gobBandeau = Instantiate(prefabBandeauLose);
+    }
+
     private void Update()
     {
         if (gobTimer.activeSelf)
         {
+            actualTime -= (Time.deltaTime * Vitesse);
             rect.anchorMax = new Vector2(rect.anchorMin.x + ((actualTime / maxTime) * xDiff), rect.anchorMax.y);
             if (actualTime <= 0)
             {

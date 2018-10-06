@@ -44,7 +44,8 @@ public class Holder : MonoBehaviour {
     private void Start()
     {
         allScenette = new Queue<GameObject>(scenetteListTemp);
-        currentScenette = GameObject.Find("ScenetteTest").GetComponent<Scenette>(); 
+        //DEBUG, NEED TO BE ERASE AFTER
+        currentScenette = GameObject.Find("ScenetteTest").GetComponent<Scenette>();
         currentScenette.Fail += fail;
         currentScenette.Sucess += succ;
 
@@ -57,7 +58,6 @@ public class Holder : MonoBehaviour {
         xDiff = rect.anchorMax.x - rect.anchorMin.x;
         xDiffHonor = rectHonor.anchorMax.x - rectHonor.anchorMin.x;
 
-        setTime(5);
         if (instance != null)
         {
             Destroy(gameObject);
@@ -74,6 +74,9 @@ public class Holder : MonoBehaviour {
             poolKey[index].transform.SetParent(transform);
         }
 
+
+        //Start Game  :
+        currentScenette.init();
     }
 
     public void setSpeed(float speed)

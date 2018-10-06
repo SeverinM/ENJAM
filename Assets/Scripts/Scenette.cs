@@ -45,6 +45,7 @@ public class Scenette : MonoBehaviour {
     
     public void init()
     {
+        print("init by scenette, parfum pour bit");
         Holder.getInstance().setSpeed(speedBandeauMultipler);
         if (!startScene)
             timerCoroutine = StartCoroutine(timerOfDuration(duration));
@@ -125,8 +126,6 @@ public class Scenette : MonoBehaviour {
             foreach (DataInput dI in sequencesToDo[currentSequenceIndex].dI)
             {
                 ToucheFX tf = Holder.instance.getKeyFx(dI.kc, dI.wPos).GetComponent<ToucheFX>();
-                tf.GetComponent<RectTransform>().anchorMax = new Vector2(dI.wPos.x, dI.wPos.y);
-                tf.GetComponent<RectTransform>().anchorMin = new Vector2(dI.wPos.x, dI.wPos.y);
                 dI.tFX = tf;
             }
         }
@@ -147,6 +146,7 @@ public class Scenette : MonoBehaviour {
 
     IEnumerator timerOfDuration(float duration)
     {
+        yield return new WaitForEndOfFrame();
         float timeRemain = duration;
         Holder.instance.setTime(duration, true);
         while (timeRemain > 0)

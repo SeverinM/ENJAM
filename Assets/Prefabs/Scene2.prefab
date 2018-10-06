@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1441078916217506
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,18 +216,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e5f5bb19a33f84d90a028deef7aa7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScene: 0
+  backgroundSprite: {fileID: 0}
+  animPourHero: 0
   duration: 5
-  sequencesToDo: []
-  positionForTouche:
-  - {fileID: 4170656859573064}
-  - {fileID: 4131986337072492}
-  - {fileID: 4521263503811590}
-  - {fileID: 4167713324256314}
-  - {fileID: 4186314448610310}
   finish: 0
+  sequencesToDo: []
   timeBeforeNext: 5
   speedBandeauMultipler: 0.5
   mutliplerSpeedEnter: 3
+  inputPressed: 0
+  hero: {fileID: 0}
+  decor: {fileID: 0}
 --- !u!212 &212680101012353512
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -271,5 +271,5 @@ SpriteRenderer:
   m_Size: {x: 9.4, y: 6.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0

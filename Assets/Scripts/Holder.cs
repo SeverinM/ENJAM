@@ -55,7 +55,6 @@ public class Holder : MonoBehaviour {
     {
         if (gobTimer.activeSelf)
         {
-            actualTime -= (Time.deltaTime * Vitesse);
             rect.anchorMax = new Vector2(rect.anchorMin.x + ((actualTime / maxTime) * xDiff), rect.anchorMax.y);
             if (actualTime <= 0)
             {
@@ -95,9 +94,13 @@ public class Holder : MonoBehaviour {
         return output;
     }
 
-    public void setTime(float time)
+    public void setTime(float time, bool restart = true)
     {
-        actualTime = maxTime = time;
+        actualTime = time;
+        if (restart)
+        {
+            maxTime = time;
+        }
         gobTimer.SetActive(true);
     }
 

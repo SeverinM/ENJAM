@@ -31,18 +31,22 @@ public class Holder : MonoBehaviour {
     RectTransform rectHonor;
     float xDiffHonor;
 
-    Queue<Scenette> allScenette;
+    [SerializeField]
+    List<GameObject> scenetteListTemp = new List<GameObject>();
+    Queue<GameObject> allScenette;
     Scenette currentScenette;
+    Scenette destroyingScenette;
 
     public GameObject prefabBandeauWin;
     public GameObject prefabBandeauLose;
     GameObject gobBandeau;
 
     [SerializeField]
-    float timeBeforeNext = 1;
+    float timeBeforeNext = 10;
 
     private void Start()
     {
+        allScenette = new Queue<GameObject>(scenetteListTemp);
         currentScenette = FindObjectOfType<Scenette>();
         currentScenette.Fail += fail;
         currentScenette.Sucess += succ;
@@ -81,20 +85,37 @@ public class Holder : MonoBehaviour {
         {
             currentScenette.Sucess -= succ;
             currentScenette.Fail -= fail;
+            destroyingScenette = currentScenette;
         }
-        currentScenette = allScenette.Dequeue();
+        currentScenette = Instantiate(allScenette.Dequeue()).GetComponent<Scenette>();
+        currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Transition";
         currentScenette.Sucess += succ;
         currentScenette.Fail += succ;
     }
 
+    public void activate()
+    {
+        gobHonor.SetActive(true);
+        gobHonor.SetActive(true);
+        Destroy(destroyingScenette.gameObject);
+        currentScenette.enabled = true;
+        currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+    }
+
     public void succ()
     {
-        gobBandeau = Instantiate(prefabBandeauWin);
+        gobHonor.SetActive(false);
+        gobTimer.SetActive(false);
+        gobBandeau = Instantiate(prefabBandeauWin, currentScenette.transform);
+        StartCoroutine(nextSceneCoroutine());
     }
 
     public void fail()
     {
-        gobBandeau = Instantiate(prefabBandeauLose);
+        gobHonor.SetActive(false);
+        gobTimer.SetActive(false);
+        gobBandeau = Instantiate(prefabBandeauLose, currentScenette.transform);
+        StartCoroutine(nextSceneCoroutine());
     }
 
     private void Update()
@@ -164,12 +185,7 @@ public class Holder : MonoBehaviour {
     IEnumerator nextSceneCoroutine()
     {
         yield return new WaitForSeconds(timeBeforeNext);
-        nextSceneVisu();
+        nextScene();
         yield return 0;
-    }
-
-    public void nextSceneVisu()
-    {
-
     }
 }

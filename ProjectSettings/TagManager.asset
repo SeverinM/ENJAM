@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Touches
+    uniqueID: 4146795173
+    locked: 0
   - name: Bandeau
     uniqueID: 1747169477
+    locked: 0
+  - name: Transition
+    uniqueID: 1759370023
     locked: 0

@@ -123,7 +123,6 @@ public class Scenette : MonoBehaviour {
 
     void FailTouche()
     {
-        Debug.Log("ji");
         //print("FAIIIIIIIIIIIL");
         foreach (DataInput dI in currentSequence)
         {

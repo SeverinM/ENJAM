@@ -283,8 +283,7 @@ MonoBehaviour:
   honor: 50
   prefabHonor: {fileID: 1599562243674946, guid: 883bf45efeca4734282788b60aed5918,
     type: 2}
-  scenetteListTemp:
-  - {fileID: 1433668267563048, guid: d30a20fd862ce354cb5988809cd247c8, type: 2}
+  scenetteListTemp: []
   prefabBandeauWin: {fileID: 1429722363088972, guid: 966e7aee3ab33dc49bf53b956ce0e405,
     type: 2}
   prefabBandeauLose: {fileID: 1216425898324356, guid: e5bba4f17a7d5294fbe0ec736add6fba,
@@ -787,6 +786,7 @@ MonoBehaviour:
   - {fileID: 1351629577}
   - {fileID: 1800458002}
   finish: 0
+  mutliplerSpeedEnter: 5
 --- !u!4 &1994931082
 Transform:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ Transform:
   m_GameObject: {fileID: 1994931080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8738065, y: 1.5928526, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1956016890}
   - {fileID: 282281036}
@@ -856,7 +856,7 @@ SpriteRenderer:
   m_Size: {x: 9.4, y: 6.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!95 &1994931084
 Animator:

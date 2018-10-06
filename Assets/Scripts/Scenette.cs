@@ -14,6 +14,7 @@ public class Scenette : MonoBehaviour {
 
     [SerializeField]
     float duration = 5;
+    private Coroutine timerCoroutine;
 
 
     [Header("Input data and sequence part")]
@@ -58,7 +59,7 @@ public class Scenette : MonoBehaviour {
 
     public void init()
     {
-        StartCoroutine(timerOfDuration(duration));
+        timerCoroutine = StartCoroutine(timerOfDuration(duration));
         currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
         nextSequence();
     }
@@ -66,6 +67,23 @@ public class Scenette : MonoBehaviour {
     
     // Update is called once per frame
     void Update () {
+
+        if (!finish)
+        {
+            InputHandling();
+        }
+            
+        
+        ////TOD DO DEBUG NOPE
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        /////End to do nope
+    }
+
+    void InputHandling()
+    {
         if (sequencesToDo[currentSequenceIndex].dI.Count != 0)
         {
             List<KeyCode> forbiddenKeys = new List<KeyCode>();
@@ -80,18 +98,12 @@ public class Scenette : MonoBehaviour {
             }
 
         }
-        else if( !finish )
+        else
         {
             nextSequence();
         }
-        
-        ////TOD DO DEBUG NOPE
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-        /////End to do nope
     }
+
 
     void nextSequence()
     {
@@ -114,6 +126,7 @@ public class Scenette : MonoBehaviour {
 
     void NextScenette()
     {
+        StopCoroutine(timerCoroutine);
         finish = true;
     }
 

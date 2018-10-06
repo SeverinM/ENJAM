@@ -767,10 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 15
-  currentSequence:
-  - kc: 0
-    tFX: {fileID: 0}
-    wPos: {x: 0, y: 0}
+  sequencesToDo: []
   positionForTouche:
   - {fileID: 1956016890}
   - {fileID: 282281036}

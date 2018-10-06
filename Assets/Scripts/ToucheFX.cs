@@ -15,6 +15,8 @@ public class ToucheFX : MonoBehaviour {
     {
         _anima = this.GetComponent<Animator>();
         _rectTransform = this.GetComponent<RectTransform>();
+
+        _anima.speed = Random.Range(0.5f,1.7f);
     }
 
     public void init(Vector2 worldPosition, string c )

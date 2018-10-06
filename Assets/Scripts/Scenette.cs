@@ -11,47 +11,63 @@ public class Scenette : MonoBehaviour {
     public delegate void voidFunc();
     public event voidFunc Sucess;
     public event voidFunc Fail;
-    bool done = false;
 
     [SerializeField]
     float duration = 5;
-    
 
-    [Header("Debug part")]
-    public List<DataInput> currentSequence = new List<DataInput>();
+
+    [Header("Input data and sequence part")]
+    [SerializeField]
+    public List<SequenceInput> sequencesToDo = new List<SequenceInput>();
+    int currentSequenceIndex = 0;
     public List<Transform> positionForTouche = new List<Transform>();
     public bool finish = true;
-
-    float timeToEnter = 5;
-
-
+    
+    
+    int _debug_indexPos = 0; // devra etre set a la main
 
     // Use this for initialization
     void Start () {
+        SequenceInput currentSequence = new SequenceInput();
+        for (int random = 0; random < Random.Range(3, 8); random++)
+        {
+            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
+            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
+        }
+        sequencesToDo.Add(currentSequence);
+        currentSequence = new SequenceInput();
+        for (int random = 0; random < Random.Range(3, 8); random++)
+        {
+            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
+            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
+        }
+        sequencesToDo.Add(currentSequence);
+        currentSequence = new SequenceInput();
+        for (int random = 0; random < Random.Range(3, 8); random++)
+        {
+            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
+            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
+        }
+        sequencesToDo.Add(currentSequence);
 
-        currentSequence.Clear();
-        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
-        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
-        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
+
         init();
     }
 
     public void init()
     {
         StartCoroutine(timerOfDuration(duration));
-        LaunchNextSequence();
+        currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
+        nextSequence();
     }
 
-    int _debug_indexPos=0;
-
-    int sizeCurrentSqc;
+    
     // Update is called once per frame
     void Update () {
-        sizeCurrentSqc = currentSequence.Count;
-        if (currentSequence.Count != 0)
+        if (sequencesToDo[currentSequenceIndex].dI.Count != 0)
         {
             List<KeyCode> forbiddenKeys = new List<KeyCode>();
-            foreach (DataInput dI in currentSequence)
+            foreach (DataInput dI in sequencesToDo[currentSequenceIndex].dI)
             {
                 if (Input.GetKeyDown(dI.kc) && !forbiddenKeys.Contains(dI.kc))
                 {
@@ -64,41 +80,34 @@ public class Scenette : MonoBehaviour {
         }
         else if( !finish )
         {
-            for (int random = 0; random < Random.Range(3,8); random++)
-            {
-                currentSequence.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-                _debug_indexPos = (_debug_indexPos == (positionForTouche.Count-1) ? 0 : _debug_indexPos);
-            }
-            LaunchNextSequence();
+            nextSequence();
         }
-
-        if (currentSequence.Count == 0 && finish && !done)
-        {
-            if (!done)
-            {
-                done = true;
-                Sucess();
-            }
-        }
-
-
-
+        
         ////TOD DO DEBUG NOPE
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
+        /////End to do nope
     }
-    int _debug_DBG = 0;
-    void LaunchNextSequence()
+
+    void nextSequence()
     {
-        //Creation UI of next sequence
-        foreach (DataInput dI in currentSequence)
+        currentSequenceIndex++;
+        if(currentSequenceIndex == sequencesToDo.Count)
         {
-            ToucheFX tf = Holder.instance.getKeyFx(dI.kc, dI.wPos).GetComponent<ToucheFX>();
-            dI.tFX = tf;
+            NextScenette();
+            Sucess();
         }
-        _debug_DBG++;
+        else
+        {
+            //Creation UI of next sequence
+            foreach (DataInput dI in sequencesToDo[currentSequenceIndex].dI)
+            {
+                ToucheFX tf = Holder.instance.getKeyFx(dI.kc, dI.wPos).GetComponent<ToucheFX>();
+                dI.tFX = tf;
+            }
+        }
     }
 
     void NextScenette()
@@ -110,41 +119,32 @@ public class Scenette : MonoBehaviour {
     IEnumerator deleteThisOneFromCurrentSequence(DataInput dI)
     {
         yield return new WaitForEndOfFrame();
-        currentSequence.Remove(dI);
+        sequencesToDo[currentSequenceIndex].dI.Remove(dI);
     }
 
     IEnumerator timerOfDuration(float duration)
     {
         float timeRemain = duration;
-        while (timeRemain > 0 && !done)
+        Holder.instance.setTime(duration, true);
+        while (timeRemain > 0)
         {
-            Holder.instance.setTime(duration);
             timeRemain -= 0.1f + Time.deltaTime;
             Holder.instance.setTime(timeRemain, false);
-            if (timeRemain <= 0)
-            {
-                FailTouche();
-            }
-            
             yield return new WaitForSeconds(0.1f);
         }
+        FailTouche();
         Holder.instance.setTime(0);
     }
 
     void FailTouche()
     {
-        Debug.Log("ji");
-        //print("FAIIIIIIIIIIIL");
-        foreach (DataInput dI in currentSequence)
+        //Debug.Log("you faIIIIIIIIIIIIIIIIIIIIIIIILED !");
+        foreach (DataInput dI in sequencesToDo[currentSequenceIndex].dI)
         {
             dI.tFX.launchFail();
         }
         NextScenette();
-        currentSequence.Clear();
-        if (Fail != null)
-        {
-            done = true;
-            Fail();
-        }
+        sequencesToDo[currentSequenceIndex].dI.Clear();
+        Fail();
     }
 }

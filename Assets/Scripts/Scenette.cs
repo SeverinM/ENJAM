@@ -33,6 +33,7 @@ public class Scenette : MonoBehaviour {
     private int wrongChar = 0;
     public float timeBeforeNext = 0.5f;
     public float speedBandeauMultipler = 1;
+    public float mutliplerSpeedEnter = 5;
     public bool inputPressed = false;
 
 
@@ -40,10 +41,6 @@ public class Scenette : MonoBehaviour {
     [Header("Dont touch")]
     public Perso hero;
     public SpriteRenderer decor;
-
-    int _debug_indexPos = 0; // devra etre set a la main
-
-    public float mutliplerSpeedEnter = 5;
     
     
     public void init()

@@ -23,17 +23,22 @@ public class ToucheFX : MonoBehaviour {
         textChar.text = c;
         Vector2 screenPos = Holder.instance.mainCamera.WorldToScreenPoint(worldPosition);
         this._rectTransform.position = screenPos;
-        Debug.Log("WorldPos = " + worldPosition + " screenPos = " + screenPos);
-
+        //Debug.Log("WorldPos = " + worldPosition + " screenPos = " + screenPos);
     }
 
 
     public void getFinish()
     {
-        Debug.Log("success");
+        //Debug.Log("Sucess "+Time.timeSinceLevelLoad);
         _anima.SetTrigger("success");
     }
-   //getCall by the animation ! 
+
+    public void launchFail()
+    {
+        _anima.SetTrigger("fail");
+    }
+
+    //getCall by the animation ! 
     public void endAnimation()
     {
         this.gameObject.SetActive(false);

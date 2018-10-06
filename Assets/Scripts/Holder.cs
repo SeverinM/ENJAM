@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Holder : MonoBehaviour {
 
+    public static uint SIZEPOOLTOUCHE = 50;
 
     public float Vitesse = 0;
     public static Holder instance;
@@ -17,7 +19,7 @@ public class Holder : MonoBehaviour {
     float xDiff;
 
     public GameObject prefabInstanceToucheFX;
-    Dictionary<KeyCode, GameObject> poolKey = new Dictionary<KeyCode, GameObject>();
+    GameObject[] poolKey = new GameObject[SIZEPOOLTOUCHE];
 
     public Camera mainCamera;
 
@@ -49,6 +51,14 @@ public class Holder : MonoBehaviour {
         {
             instance = this;
         }
+
+        for (int index = 0; index < SIZEPOOLTOUCHE; index ++)
+        {
+            poolKey[index] = Instantiate(prefabInstanceToucheFX) as GameObject;
+            poolKey[index].SetActive(false);
+
+        }
+
     }
 
     private void Update()
@@ -79,16 +89,21 @@ public class Holder : MonoBehaviour {
 
     public GameObject getKeyFx(KeyCode kc, Vector2 worldPosition)
     {
-        GameObject output;
-        if (poolKey.ContainsKey(kc))
+        GameObject output = null;
+        for (int index = 0; index < SIZEPOOLTOUCHE; index++)
         {
-            output = poolKey[kc];
+            if (!poolKey[index].activeSelf)
+            {
+                output = poolKey[index];
+                break;
+            }
+
         }
-        else
+        if(output == null)
         {
-            output = poolKey[kc] = Instantiate(prefabInstanceToucheFX) as GameObject;
-            output.transform.SetParent(transform);
+            Debug.LogError("Pas le place ? Serieux ??? Y a plus de 100 touches actives a l'ecran ? Mais wat ?");
         }
+        output.transform.SetParent(transform);
         output.GetComponent<ToucheFX>().init(worldPosition, kc.ToString());
         output.SetActive(true);
         return output;

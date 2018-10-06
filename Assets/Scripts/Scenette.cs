@@ -22,6 +22,7 @@ public class Scenette : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
         premiereSequence.Add((KeyCode)Random.Range(97, 122));
         premiereSequence.Add((KeyCode)Random.Range(97, 122));
         premiereSequence.Add((KeyCode)Random.Range(97, 122));

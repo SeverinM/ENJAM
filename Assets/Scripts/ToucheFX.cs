@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ToucheFX : MonoBehaviour {
 
-    public Text charDisplay;
-
     private Animator _anima;
 
     public void Start()
@@ -16,19 +14,21 @@ public class ToucheFX : MonoBehaviour {
 
     public void init(Vector2 worldPosition, string c )
     {
-        charDisplay.text = c;
-        this.transform.position = worldPosition;
+        GameObject child = transform.GetChild(0).gameObject;
+        child.GetComponent<Text>().text = c;
+        GetComponent<RectTransform>().anchorMin = worldPosition;
+        GetComponent<RectTransform>().anchorMax = worldPosition;
+        GetComponent<RectTransform>().position = new Vector3(100, 100, 0);
     }
 
 
     public void getFinish()
     {
         _anima.SetTrigger("success");
-        Debug.Log("I do died.");
     }
    //getCall by the animation ! 
     public void endAnimation()
     {
-        //destroy himself !!! In reality : touchePool deactivate him and keep him in stock for further use
+
     }
 }

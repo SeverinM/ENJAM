@@ -7,6 +7,8 @@ public class Holder : MonoBehaviour {
 
     public float Vitesse = 0;
     public static Holder instance;
+    public GameObject prefabInstanceToucheFX;
+    Dictionary<KeyCode, GameObject> poolKey = new Dictionary<KeyCode, GameObject>();
 
     private void Start()
     {
@@ -24,8 +26,25 @@ public class Holder : MonoBehaviour {
     {
         if (instance == null)
         {
-            new GameObject().AddComponent<Holder>();
+            instance = new GameObject().AddComponent<Holder>();
         }
         return instance;
+    }
+
+    public GameObject getKeyFx(KeyCode kc, Vector2 worldPosition)
+    {
+        GameObject output;
+        if (poolKey.ContainsKey(kc))
+        {
+            output = poolKey[kc];
+        }
+        else
+        {
+            output = poolKey[kc] = Instantiate(prefabInstanceToucheFX) as GameObject;
+            output.transform.parent = FindObjectOfType<Canvas>().transform;
+        }
+        output.GetComponent<ToucheFX>().init(worldPosition, kc.ToString());
+        output.SetActive(true);
+        return output;
     }
 }

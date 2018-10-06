@@ -217,18 +217,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
-  currentSequence:
-  - kc: 0
-    tFX: {fileID: 0}
-    wPos: {x: 0, y: 0}
+  sequencesToDo: []
   positionForTouche:
   - {fileID: 4170656859573064}
   - {fileID: 4131986337072492}
   - {fileID: 4521263503811590}
   - {fileID: 4167713324256314}
   - {fileID: 4186314448610310}
-  finish: 1
-  mutliplerSpeedEnter: 0.1
+  finish: 0
+  timeBeforeNext: 5
+  speedBandeauMultipler: 0.5
+  mutliplerSpeedEnter: 3
 --- !u!212 &212680101012353512
 SpriteRenderer:
   m_ObjectHideFlags: 1

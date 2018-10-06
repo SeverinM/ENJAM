@@ -19,7 +19,7 @@ public class Bandeaux : MonoBehaviour {
     
         if (time < maxTime)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * Holder.getInstance().getSpeed();
             Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, curve.Evaluate(time) * Screen.height, 1));
             transform.position = new Vector3(vec.x, vec.y, 1);
         }

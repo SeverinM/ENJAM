@@ -26,8 +26,8 @@ public class Scenette : MonoBehaviour {
     int currentSequenceIndex = 0;
     public List<Transform> positionForTouche = new List<Transform>();
     public int wrongChar = 0;
-
-
+    public float timeBeforeNext = 0.5f;
+    public float speedBandeauMultipler = 1;
     
     int _debug_indexPos = 0; // devra etre set a la main
 
@@ -35,6 +35,7 @@ public class Scenette : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        sequencesToDo.Clear();
         SequenceInput currentSequence = new SequenceInput();
         for (int random = 0; random < Random.Range(3, 8); random++)
         {
@@ -57,9 +58,10 @@ public class Scenette : MonoBehaviour {
         }
         sequencesToDo.Add(currentSequence);
 
-
+        Holder.getInstance().setSpeed(speedBandeauMultipler);
         init();
     }
+
 
     public void init()
     {

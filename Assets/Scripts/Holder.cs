@@ -31,8 +31,7 @@ public class Holder : MonoBehaviour {
     RectTransform rectHonor;
     float xDiffHonor;
 
-    [SerializeField]
-    List<GameObject> scenetteListTemp = new List<GameObject>();
+    public List<GameObject> scenetteListTemp = new List<GameObject>();
     Queue<GameObject> allScenette;
     Scenette currentScenette;
     Scenette destroyingScenette;
@@ -40,14 +39,12 @@ public class Holder : MonoBehaviour {
     public GameObject prefabBandeauWin;
     public GameObject prefabBandeauLose;
     GameObject gobBandeau;
-
-    [SerializeField]
-    float timeBeforeNext = 0.5f;
+    float speedBandeau = 1;
 
     private void Start()
     {
         allScenette = new Queue<GameObject>(scenetteListTemp);
-        currentScenette = FindObjectOfType<Scenette>();
+        currentScenette = GameObject.Find("ScenetteTest").GetComponent<Scenette>(); 
         currentScenette.Fail += fail;
         currentScenette.Sucess += succ;
 
@@ -79,15 +76,32 @@ public class Holder : MonoBehaviour {
 
     }
 
+    public void setSpeed(float speed)
+    {
+        speedBandeau = speed;
+    }
+
+    public float getSpeed()
+    {
+        return speedBandeau;
+    }
+
     public void nextScene()
     {
+        if (allScenette.Count == 0)
+        {
+            return;
+        }
         if (currentScenette != null)
         {
             currentScenette.Sucess -= succ;
             currentScenette.Fail -= fail;
             destroyingScenette = currentScenette;
         }
-        currentScenette = Instantiate(allScenette.Dequeue()).GetComponent<Scenette>();
+
+        GameObject obj = allScenette.Dequeue();
+        obj.SetActive(true);
+        currentScenette = Instantiate(obj).GetComponent<Scenette>();
         currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
         currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Transition";
         currentScenette.Sucess += succ;
@@ -190,7 +204,7 @@ public class Holder : MonoBehaviour {
 
     IEnumerator nextSceneCoroutine()
     {
-        yield return new WaitForSeconds(timeBeforeNext);
+        yield return new WaitForSeconds(currentScenette.timeBeforeNext);
         nextScene();
         yield return 0;
     }

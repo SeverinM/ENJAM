@@ -26,6 +26,8 @@ public class Scenette : MonoBehaviour {
     
     int _debug_indexPos = 0; // devra etre set a la main
 
+    public float mutliplerSpeedEnter = 5;
+
     // Use this for initialization
     void Start () {
         SequenceInput currentSequence = new SequenceInput();

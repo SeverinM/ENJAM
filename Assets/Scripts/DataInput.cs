@@ -5,7 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class DataInput {
 
-    public KeyCode kc;
+    public KeyCode kc = KeyCode.A;
+    [HideInInspector]
     public ToucheFX tFX;
     public Vector2 wPos;
 

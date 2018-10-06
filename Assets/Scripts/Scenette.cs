@@ -11,10 +11,13 @@ public class Scenette : MonoBehaviour {
     public delegate void voidFunc();
     public event voidFunc Sucess;
     public event voidFunc Fail;
-
+    
+    [Header("Global Info")]
+    public bool startScene = false;
     [SerializeField]
     float duration = 5;
     private Coroutine timerCoroutine;
+    public bool finish = true;
 
 
     [Header("Input data and sequence part")]
@@ -22,8 +25,9 @@ public class Scenette : MonoBehaviour {
     public List<SequenceInput> sequencesToDo = new List<SequenceInput>();
     int currentSequenceIndex = 0;
     public List<Transform> positionForTouche = new List<Transform>();
-    public bool finish = true;
-    
+    public int wrongChar = 0;
+
+
     
     int _debug_indexPos = 0; // devra etre set a la main
 
@@ -59,7 +63,8 @@ public class Scenette : MonoBehaviour {
 
     public void init()
     {
-        timerCoroutine = StartCoroutine(timerOfDuration(duration));
+        if(!startScene)
+            timerCoroutine = StartCoroutine(timerOfDuration(duration));
         currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
         nextSequence();
     }
@@ -97,6 +102,13 @@ public class Scenette : MonoBehaviour {
                 }
             }
 
+            foreach (char c in Input.inputString)
+            {
+                if (!forbiddenKeys.Contains((KeyCode)c))
+                {
+                    wrongChar++;
+                }
+            }
         }
         else
         {
@@ -144,6 +156,12 @@ public class Scenette : MonoBehaviour {
         while (timeRemain > 0)
         {
             timeRemain -= 0.1f + Time.deltaTime;
+            if(wrongChar != 0)
+            {
+                timeRemain -= 0.4f * wrongChar;
+                wrongChar = 0;
+                Holder.instance.timerHurt();
+            }
             Holder.instance.setTime(timeRemain, false);
             yield return new WaitForSeconds(0.1f);
         }

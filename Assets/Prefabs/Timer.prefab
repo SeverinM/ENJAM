@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224013802497730172}
   - component: {fileID: 222100561267771976}
   - component: {fileID: 114182812941402182}
+  - component: {fileID: 95078708821285288}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -28,6 +29,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95078708821285288
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1196506264497912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a65d37d304ba11841bd4132cee082d92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114182812941402182
 MonoBehaviour:
   m_ObjectHideFlags: 1

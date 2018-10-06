@@ -29,6 +29,10 @@ public class BisousLeo : EditorWindow {
 
     List<SequenceInput> sequences = new List<SequenceInput>();
 
+    AudioClip clpSuccess;
+    AudioClip clpFail;
+    AudioClip clpSuccessScenette;
+
 
     [MenuItem("Window/LeoEditor")]
     public static void ShowWindow()
@@ -104,7 +108,12 @@ public class BisousLeo : EditorWindow {
                 EditorGUILayout.LabelField(s);
             }
         }
-        
+
+        GUILayout.Label("Sons Optionnels (en prendra un par defaut si aucun n'est choisi)");
+        clpFail = (AudioClip)EditorGUILayout.ObjectField("Mauvaise touche ", clpFail, typeof(AudioClip), true);
+        clpSuccess = (AudioClip)EditorGUILayout.ObjectField("Bonne touche ", clpSuccess, typeof(AudioClip), true);
+        clpSuccessScenette = (AudioClip)EditorGUILayout.ObjectField("Fin scenette positive ", clpSuccessScenette, typeof(AudioClip), true);
+
 
         if (GUILayout.Button("Ajouter a la liste"))
         {
@@ -115,6 +124,10 @@ public class BisousLeo : EditorWindow {
             scn.speedBandeauMultipler = vitesseBandeauMultipler;
             scn.timeBeforeNext = delaiBandeau;
             scn.mutliplerSpeedEnter = vitesseInsertion;
+            scn.failClic = clpFail;
+            scn.successClic = clpSuccess;
+            scn.successScenette = clpSuccessScenette;
+
             holder.scenetteListTemp.Add(instance);
             sequences = new List<SequenceInput>();
         }

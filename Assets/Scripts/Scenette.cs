@@ -41,12 +41,32 @@ public class Scenette : MonoBehaviour {
     [Header("Dont touch")]
     public Perso hero;
     public SpriteRenderer decor;
+
+    [Header("Audio")]
+    public AudioClip failClic;
+    public AudioClip successClic;
+    public AudioClip successScenette;
     
     
     public void init()
     {
-        print("init by scenette, parfum pour bit");
-        Holder.getInstance().setSpeed(speedBandeauMultipler);
+        Holder hold = Holder.instance;
+
+        if (failClic == null)
+        {
+            failClic = hold.failClic;
+        }
+
+        if (successClic == null)
+        {
+            successClic = hold.successClic;
+        }
+
+        if(successScenette == null)
+        {
+            successScenette = hold.soundsSuccess[Random.Range(0, hold.soundsSuccess.Count - 1)];
+        }
+
         if (!startScene)
             timerCoroutine = StartCoroutine(timerOfDuration(duration));
 
@@ -85,9 +105,11 @@ public class Scenette : MonoBehaviour {
             {
                 if (Input.GetKeyDown(dI.kc) && !forbiddenKeys.Contains(dI.kc))
                 {
+                    Debug.Log(dI.tFX);
                     dI.tFX.getFinish();
                     StartCoroutine(deleteThisOneFromCurrentSequence(dI));
                     forbiddenKeys.Add(dI.kc);
+                    Holder.getInstance().Play(successClic);
 
                     if (!inputPressed)
                     {
@@ -119,6 +141,7 @@ public class Scenette : MonoBehaviour {
         {
             NextScenette();
             Sucess();
+            Holder.instance.Play(successScenette);
         }
         else
         {
@@ -156,7 +179,7 @@ public class Scenette : MonoBehaviour {
             {
                 timeRemain -= 0.4f * wrongChar;
                 wrongChar = 0;
-                Holder.instance.timerHurt();
+                Holder.instance.Play(failClic);
             }
             Holder.instance.setTime(timeRemain, false);
             yield return new WaitForSeconds(0.1f);

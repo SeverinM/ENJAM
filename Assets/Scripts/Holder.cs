@@ -41,8 +41,15 @@ public class Holder : MonoBehaviour {
     GameObject gobBandeau;
     float speedBandeau = 1;
 
+    AudioSource audio;
+    public AudioClip successClic;
+    public AudioClip failClic;
+    public List<AudioClip> soundsSuccess;
+    public List<AudioClip> soundsFail;
+
     private void Start()
     {
+        audio = GameObject.FindObjectOfType<AudioSource>();
         allScenette = new Queue<GameObject>(scenetteListTemp);
         //DEBUG, NEED TO BE ERASE AFTER
         currentScenette = GameObject.Find("ScenetteTest").GetComponent<Scenette>();
@@ -84,6 +91,11 @@ public class Holder : MonoBehaviour {
         speedBandeau = speed;
     }
 
+    public void Play(AudioClip clp)
+    {
+        audio.PlayOneShot(clp);
+    }
+
     public float getSpeed()
     {
         return speedBandeau;
@@ -91,24 +103,27 @@ public class Holder : MonoBehaviour {
 
     public void nextScene()
     {
+        GameObject gob;
+        GameObject obj = null;
         if (allScenette.Count == 0)
         {
+            obj = allScenette.Dequeue();
+            obj.SetActive(true);
+            currentScenette = Instantiate(obj).GetComponent<Scenette>();
             return;
         }
         if (currentScenette != null)
         {
+            if (allScenette.Count == 0)
+                setSpeed(allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
             currentScenette.Sucess -= succ;
             currentScenette.Fail -= fail;
             destroyingScenette = currentScenette;
+            currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
+            currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Transition";
+            currentScenette.Sucess += succ;
+            currentScenette.Fail += succ;
         }
-
-        GameObject obj = allScenette.Dequeue();
-        obj.SetActive(true);
-        currentScenette = Instantiate(obj).GetComponent<Scenette>();
-        currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
-        currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Transition";
-        currentScenette.Sucess += succ;
-        currentScenette.Fail += succ;
     }
 
     public void activate()

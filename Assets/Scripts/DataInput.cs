@@ -6,6 +6,8 @@ using UnityEngine;
 public class DataInput {
 
     public KeyCode kc;
+
+    [HideInInspector]
     public ToucheFX tFX;
     public Vector2 wPos;
 

@@ -33,8 +33,8 @@ public class Scenette : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        sequencesToDo.Clear();
-        SequenceInput currentSequence = new SequenceInput();
+        //sequencesToDo.Clear();
+        /*SequenceInput currentSequence = new SequenceInput();
         for (int random = 0; random < Random.Range(3, 8); random++)
         {
             currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
@@ -54,7 +54,7 @@ public class Scenette : MonoBehaviour {
             currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
             _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
         }
-        sequencesToDo.Add(currentSequence);
+        sequencesToDo.Add(currentSequence);*/
 
         Holder.getInstance().setSpeed(speedBandeauMultipler);
         init();
@@ -123,6 +123,8 @@ public class Scenette : MonoBehaviour {
             foreach (DataInput dI in sequencesToDo[currentSequenceIndex].dI)
             {
                 ToucheFX tf = Holder.instance.getKeyFx(dI.kc, dI.wPos).GetComponent<ToucheFX>();
+                tf.GetComponent<RectTransform>().anchorMax = new Vector2(dI.wPos.x, dI.wPos.y);
+                tf.GetComponent<RectTransform>().anchorMin = new Vector2(dI.wPos.x, dI.wPos.y);
                 dI.tFX = tf;
             }
         }

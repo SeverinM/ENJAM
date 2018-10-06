@@ -247,9 +247,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Vitesse: 1
+  prefabTimer: {fileID: 1196506264497912, guid: 6c7aba73b50c9ca44b6db8985cde48eb,
+    type: 2}
   prefabInstanceToucheFX: {fileID: 1166849707445052, guid: a1395376d687c61408ad43f7b5f8db40,
     type: 2}
   mainCamera: {fileID: 1898819103}
+  honor: 0
+  prefabHonor: {fileID: 1599562243674946, guid: 883bf45efeca4734282788b60aed5918,
+    type: 2}
 --- !u!1 &659062077
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e5f5bb19a33f84d90a028deef7aa7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0
   positionForTouche:
   - {fileID: 1956016890}
   - {fileID: 282281036}

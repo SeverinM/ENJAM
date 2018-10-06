@@ -11,7 +11,7 @@ public class Bandeaux : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 0));
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height, 1));
 	}
 	
 	// Update is called once per frame
@@ -20,8 +20,7 @@ public class Bandeaux : MonoBehaviour {
         if (time < maxTime)
         {
             time += Time.deltaTime;
-            Debug.Log(time + " / " + maxTime);
-            Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, curve.Evaluate(time) * Screen.height, 0));
+            Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, curve.Evaluate(time) * Screen.height, 1));
             transform.position = new Vector3(vec.x, vec.y, 1);
         }
 	}

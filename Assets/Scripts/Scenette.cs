@@ -22,7 +22,7 @@ public class Scenette : MonoBehaviour {
     public List<SequenceInput> sequencesToDo = new List<SequenceInput>();
     int currentSequenceIndex = 0;
     public List<Transform> positionForTouche = new List<Transform>();
-    public bool finish = true;
+    public bool finish = false;
     public float timeBeforeNext = 0.5f;
     public float speedBandeauMultipler = 1;
     
@@ -33,13 +33,36 @@ public class Scenette : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        sequencesToDo.Clear();
+        SequenceInput currentSequence = new SequenceInput();
+        for (int random = 0; random < Random.Range(3, 8); random++)
+        {
+            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
+            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
+        }
+        sequencesToDo.Add(currentSequence);
+        currentSequence = new SequenceInput();
+        for (int random = 0; random < Random.Range(3, 8); random++)
+        {
+            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
+            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
+        }
+        sequencesToDo.Add(currentSequence);
+        currentSequence = new SequenceInput();
+        for (int random = 0; random < Random.Range(3, 8); random++)
+        {
+            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
+            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
+        }
+        sequencesToDo.Add(currentSequence);
+
         Holder.getInstance().setSpeed(speedBandeauMultipler);
         init();
     }
 
+
     public void init()
     {
-        sequencesToDo.Clear();
         timerCoroutine = StartCoroutine(timerOfDuration(duration));
         currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
         nextSequence();
@@ -72,7 +95,6 @@ public class Scenette : MonoBehaviour {
             {
                 if (Input.GetKeyDown(dI.kc) && !forbiddenKeys.Contains(dI.kc))
                 {
-
                     dI.tFX.getFinish();
                     StartCoroutine(deleteThisOneFromCurrentSequence(dI));
                     forbiddenKeys.Add(dI.kc);

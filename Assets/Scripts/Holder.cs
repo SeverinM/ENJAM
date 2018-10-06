@@ -44,7 +44,7 @@ public class Holder : MonoBehaviour {
     private void Start()
     {
         allScenette = new Queue<GameObject>(scenetteListTemp);
-        currentScenette = FindObjectOfType<Scenette>();
+        currentScenette = GameObject.Find("ScenetteTest").GetComponent<Scenette>(); 
         currentScenette.Fail += fail;
         currentScenette.Sucess += succ;
 
@@ -88,13 +88,20 @@ public class Holder : MonoBehaviour {
 
     public void nextScene()
     {
+        if (allScenette.Count == 0)
+        {
+            return;
+        }
         if (currentScenette != null)
         {
             currentScenette.Sucess -= succ;
             currentScenette.Fail -= fail;
             destroyingScenette = currentScenette;
         }
-        currentScenette = Instantiate(allScenette.Dequeue()).GetComponent<Scenette>();
+
+        GameObject obj = allScenette.Dequeue();
+        obj.SetActive(true);
+        currentScenette = Instantiate(obj).GetComponent<Scenette>();
         currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
         currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Transition";
         currentScenette.Sucess += succ;

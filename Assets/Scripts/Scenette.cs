@@ -12,6 +12,10 @@ public class Scenette : MonoBehaviour {
     public event voidFunc Sucess;
     public event voidFunc Fail;
 
+    [SerializeField]
+    float time;
+    
+
     [Header("Debug part")]
     public List<DataInput> premiereSequence = new List<DataInput>();
     public List<Transform> positionForTouche = new List<Transform>();

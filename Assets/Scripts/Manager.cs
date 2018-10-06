@@ -5,9 +5,9 @@ using UnityEngine;
 public class Manager : MonoBehaviour {
 
     Scenette currentScenette;
-    Queue<Scenette> allScenette = new Queue<Scenette>();
+    List<Scenette> allScenette = new List<Scenette>();
 
-    public Queue<Scenette> GetScenettes()
+    public List<Scenette> GetScenettes()
     {
         return allScenette;
     }
@@ -24,7 +24,6 @@ public class Manager : MonoBehaviour {
 
     void startNewScene(Scenette scn)
     {
-        currentScenette = allScenette.Dequeue();
     }
 
     void endScene(Scenette scn)

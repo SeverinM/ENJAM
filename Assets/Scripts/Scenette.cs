@@ -12,61 +12,50 @@ public class Scenette : MonoBehaviour {
     public event voidFunc Sucess;
     public event voidFunc Fail;
     
-    [Header("Global Info")]
+    [Header("Data")]
     public bool startScene = false;
+    //visual
+    [SerializeField]
+    private Sprite backgroundSprite;
+    [SerializeField]
+    private animHero animPourHero = animHero.attaqueAuDoigt;
     [SerializeField]
     float duration = 5;
     private Coroutine timerCoroutine;
     public bool finish = true;
 
 
+
     [Header("Input data and sequence part")]
     [SerializeField]
     public List<SequenceInput> sequencesToDo = new List<SequenceInput>();
-    int currentSequenceIndex = 0;
-    public List<Transform> positionForTouche = new List<Transform>();
-    public int wrongChar = 0;
+    private int currentSequenceIndex = 0;
+    private int wrongChar = 0;
     public float timeBeforeNext = 0.5f;
     public float speedBandeauMultipler = 1;
-    
+    public bool inputPressed = false;
+
+
+
+    [Header("Dont touch")]
+    public Perso hero;
+    public SpriteRenderer decor;
+
     int _debug_indexPos = 0; // devra etre set a la main
 
     public float mutliplerSpeedEnter = 5;
-
-    // Use this for initialization
-    void Start () {
-        sequencesToDo.Clear();
-        SequenceInput currentSequence = new SequenceInput();
-        for (int random = 0; random < Random.Range(3, 8); random++)
-        {
-            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
-        }
-        sequencesToDo.Add(currentSequence);
-        currentSequence = new SequenceInput();
-        for (int random = 0; random < Random.Range(3, 8); random++)
-        {
-            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
-        }
-        sequencesToDo.Add(currentSequence);
-        currentSequence = new SequenceInput();
-        for (int random = 0; random < Random.Range(3, 8); random++)
-        {
-            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
-        }
-        sequencesToDo.Add(currentSequence);
-
-        Holder.getInstance().setSpeed(speedBandeauMultipler);
-        init();
-    }
-
-
+    
+    
     public void init()
     {
-        if(!startScene)
+        Holder.getInstance().setSpeed(speedBandeauMultipler);
+        if (!startScene)
             timerCoroutine = StartCoroutine(timerOfDuration(duration));
+
+        decor.sprite = backgroundSprite;
+        hero.setAnimator(animPourHero);
+
+        inputPressed = false;
         currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
         nextSequence();
     }
@@ -101,6 +90,12 @@ public class Scenette : MonoBehaviour {
                     dI.tFX.getFinish();
                     StartCoroutine(deleteThisOneFromCurrentSequence(dI));
                     forbiddenKeys.Add(dI.kc);
+
+                    if (!inputPressed)
+                    {
+                        hero.startEnergitize();
+                        inputPressed = true;
+                    }
                 }
             }
 

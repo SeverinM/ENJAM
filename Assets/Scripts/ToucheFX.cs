@@ -5,30 +5,37 @@ using UnityEngine.UI;
 
 public class ToucheFX : MonoBehaviour {
 
-    private Animator _anima;
+    [SerializeField]
+    private Text textChar;
 
-    public void Start()
+    private Animator _anima;
+    private RectTransform _rectTransform;
+
+    public void Awake()
     {
         _anima = this.GetComponent<Animator>();
+        _rectTransform = this.GetComponent<RectTransform>();
     }
 
     public void init(Vector2 worldPosition, string c )
     {
         GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Text>().text = c;
-        GetComponent<RectTransform>().anchorMin = worldPosition;
-        GetComponent<RectTransform>().anchorMax = worldPosition;
-        GetComponent<RectTransform>().position = new Vector3(100, 100, 0);
+        textChar.text = c;
+        Vector2 screenPos = Holder.instance.mainCamera.WorldToScreenPoint(worldPosition);
+        this._rectTransform.position = screenPos;
+        Debug.Log("WorldPos = " + worldPosition + " screenPos = " + screenPos);
+
     }
 
 
     public void getFinish()
     {
+        Debug.Log("success");
         _anima.SetTrigger("success");
     }
    //getCall by the animation ! 
     public void endAnimation()
     {
-
+        this.gameObject.SetActive(false);
     }
 }

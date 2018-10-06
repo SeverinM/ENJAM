@@ -10,6 +10,8 @@ public class Holder : MonoBehaviour {
     public GameObject prefabInstanceToucheFX;
     Dictionary<KeyCode, GameObject> poolKey = new Dictionary<KeyCode, GameObject>();
 
+    public Camera mainCamera;
+
     private void Start()
     {
         if (instance != null)

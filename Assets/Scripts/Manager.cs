@@ -14,8 +14,7 @@ public class Manager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Holder holder = Holder.getInstance();
-        holder.getKeyFx(KeyCode.A, new Vector2(0.5f, 0.5f));
+      
 	}
 	
 	// Update is called once per frame

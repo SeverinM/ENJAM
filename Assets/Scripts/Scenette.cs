@@ -13,19 +13,17 @@ public class Scenette : MonoBehaviour {
     public event voidFunc Fail;
 
     [Header("Debug part")]
-    public List<KeyCode> premiereSequence = new List<KeyCode>();
-    public GameObject toucheFXPrefab;
+    public List<DataInput> premiereSequence = new List<DataInput>();
     public List<Transform> positionForTouche = new List<Transform>();
-    public List<ToucheFX> toucheFXoffCurrentSequence = new List<ToucheFX>();
 
 
 
     // Use this for initialization
     void Start () {
         
-        premiereSequence.Add((KeyCode)Random.Range(97, 122));
-        premiereSequence.Add((KeyCode)Random.Range(97, 122));
-        premiereSequence.Add((KeyCode)Random.Range(97, 122));
+        premiereSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[0].position) );
+        premiereSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[1].position) );
+        premiereSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[2].position) );
 
         LaunchNextSequence();
     }
@@ -35,13 +33,12 @@ public class Scenette : MonoBehaviour {
 
 
         int i = 0;
-        foreach (KeyCode kc in premiereSequence)
+        foreach (DataInput dI in premiereSequence)
         {
-            if (Input.GetKeyDown(kc)) {
+            if (Input.GetKeyDown(dI.kc)) {
 
-                toucheFXoffCurrentSequence[i].getFinish();
-               //JAMAIS FAIRE CA !  premiereSequence.Remove(kc);
-                //toucheFXoffCurrentSequence.Remove(toucheFXoffCurrentSequence[i]);
+                dI.tFX.getFinish();
+                
             }
             i++;
         }
@@ -50,12 +47,13 @@ public class Scenette : MonoBehaviour {
 
     void LaunchNextSequence()
     {
-        int i = 0;
-        foreach (KeyCode kc in premiereSequence)
+
+
+        //Creation UI of next sequence
+        foreach (DataInput dI in premiereSequence)
         {
-            ToucheFX tf = Instantiate(toucheFXPrefab).GetComponent<ToucheFX>();
-            tf.init(positionForTouche[i++].position, kc.ToString());
-            toucheFXoffCurrentSequence.Add(tf);
+            ToucheFX tf = Holder.instance.getKeyFx(dI.kc, dI.wPos).GetComponent<ToucheFX>();
+            dI.tFX = tf;
         }
     }
 

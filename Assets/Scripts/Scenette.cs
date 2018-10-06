@@ -45,6 +45,7 @@ public class Scenette : MonoBehaviour {
     
     public void init()
     {
+        this.transform.position -= Vector3.forward;
         print("init by scenette, parfum pour bit");
         Holder.getInstance().setSpeed(speedBandeauMultipler);
         if (!startScene)
@@ -133,6 +134,10 @@ public class Scenette : MonoBehaviour {
 
     void NextScenette()
     {
+        print("Yep");
+        //degueulasse but will work
+        foreach(Transform tf in GetComponentsInChildren<Transform>())
+            tf.position += Vector3.forward;
         StopCoroutine(timerCoroutine);
         finish = true;
     }

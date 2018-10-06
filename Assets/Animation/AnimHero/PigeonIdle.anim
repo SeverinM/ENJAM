@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MoustiqueIdle
+  m_Name: PigeonIdle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -26,21 +26,21 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 15fa4f5f5b4a7f84582a81dadd1a2980, type: 3}
+      value: {fileID: 21300000, guid: 520ef3c66998b274fb2025395c06bfb7, type: 3}
     attribute: m_Sprite
     path: PosAnim/Corps
     classID: 212
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 9d60c6b2377eaed4a865f8b25f3bf303, type: 3}
+      value: {fileID: 21300000, guid: c30b7f944d40e9c4792283505e06dec1, type: 3}
     attribute: m_Sprite
     path: PosAnim/Mouvementeux
     classID: 212
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: c773de3f06d139645a50bcd6949fe8e1, type: 3}
+      value: {fileID: 21300000, guid: 9700dc504a698294d9292b45d5b87b3a, type: 3}
     attribute: m_Sprite
     path: PosAnim/Tete
     classID: 212
@@ -82,9 +82,9 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 0}
-    - {fileID: 21300000, guid: 15fa4f5f5b4a7f84582a81dadd1a2980, type: 3}
-    - {fileID: 21300000, guid: 9d60c6b2377eaed4a865f8b25f3bf303, type: 3}
-    - {fileID: 21300000, guid: c773de3f06d139645a50bcd6949fe8e1, type: 3}
+    - {fileID: 21300000, guid: 520ef3c66998b274fb2025395c06bfb7, type: 3}
+    - {fileID: 21300000, guid: c30b7f944d40e9c4792283505e06dec1, type: 3}
+    - {fileID: 21300000, guid: 9700dc504a698294d9292b45d5b87b3a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

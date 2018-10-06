@@ -105,7 +105,7 @@ public class Holder : MonoBehaviour {
         GameObject obj = allScenette.Dequeue();
         obj.SetActive(true);
         currentScenette = Instantiate(obj).GetComponent<Scenette>();
-        currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
+        //currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
 
         currentScenette.Sucess += succ;
         currentScenette.Fail += succ;

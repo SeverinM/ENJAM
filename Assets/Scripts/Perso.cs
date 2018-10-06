@@ -7,8 +7,10 @@ public enum animHero
     attaqueAuDoigt,
     attaqueMoustique,
     dormirVener,
+    pigeon,
     WEdormir,
-    WEsquat
+    WEsquat,
+    WEfooting
 }
 
 public class Perso : MonoBehaviour {

@@ -22,7 +22,7 @@ public class Scenette : MonoBehaviour {
     public List<Transform> positionForTouche = new List<Transform>();
     public bool finish = true;
 
-    float timeToEnter = 5;
+    public float mutliplerSpeedEnter = 5;
 
 
 

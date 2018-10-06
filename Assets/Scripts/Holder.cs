@@ -42,7 +42,7 @@ public class Holder : MonoBehaviour {
     GameObject gobBandeau;
 
     [SerializeField]
-    float timeBeforeNext = 10;
+    float timeBeforeNext = 0.5f;
 
     private void Start()
     {
@@ -88,6 +88,7 @@ public class Holder : MonoBehaviour {
             destroyingScenette = currentScenette;
         }
         currentScenette = Instantiate(allScenette.Dequeue()).GetComponent<Scenette>();
+        currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
         currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Transition";
         currentScenette.Sucess += succ;
         currentScenette.Fail += succ;
@@ -98,6 +99,7 @@ public class Holder : MonoBehaviour {
         gobHonor.SetActive(true);
         gobHonor.SetActive(true);
         Destroy(destroyingScenette.gameObject);
+        Destroy(gobBandeau);
         currentScenette.enabled = true;
         currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
     }
@@ -106,7 +108,7 @@ public class Holder : MonoBehaviour {
     {
         gobHonor.SetActive(false);
         gobTimer.SetActive(false);
-        gobBandeau = Instantiate(prefabBandeauWin, currentScenette.transform);
+        gobBandeau = Instantiate(prefabBandeauWin);
         StartCoroutine(nextSceneCoroutine());
     }
 
@@ -114,7 +116,7 @@ public class Holder : MonoBehaviour {
     {
         gobHonor.SetActive(false);
         gobTimer.SetActive(false);
-        gobBandeau = Instantiate(prefabBandeauLose, currentScenette.transform);
+        gobBandeau = Instantiate(prefabBandeauLose);
         StartCoroutine(nextSceneCoroutine());
     }
 

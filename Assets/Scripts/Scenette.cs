@@ -13,7 +13,7 @@ public class Scenette : MonoBehaviour {
     public event voidFunc Fail;
 
     [SerializeField]
-    float time;
+    float duration = 5;
     
 
     [Header("Debug part")]
@@ -29,11 +29,19 @@ public class Scenette : MonoBehaviour {
         premiereSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[1].position) );
         premiereSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[2].position) );
 
+        init();
+    }
+
+    public void init()
+    {
+        StartCoroutine(timerOfDuration(duration));
         LaunchNextSequence();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+
+
+    // Update is called once per frame
+    void Update () {
 
 
         int i = 0;
@@ -60,5 +68,20 @@ public class Scenette : MonoBehaviour {
             dI.tFX = tf;
         }
     }
+
+
+    IEnumerator timerOfDuration(float duration)
+    {
+        float timeRemain = duration;
+        while(duration > 0)
+        {
+            timeRemain -= 0.1f + Time.deltaTime;
+            Holder.instance.setTime(timeRemain/5);
+            yield return new WaitForSeconds(0.1f);
+        }
+        Holder.instance.setTime(0);
+
+    }
+
 
 }

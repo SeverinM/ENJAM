@@ -11,59 +11,48 @@ public class Scenette : MonoBehaviour {
     public delegate void voidFunc();
     public event voidFunc Sucess;
     public event voidFunc Fail;
-
+    
+    [Header("Data")]
+    public bool startScene = false;
+    //visual
+    [SerializeField]
+    private Sprite backgroundSprite;
+    [SerializeField]
+    private animHero animPourHero = animHero.attaqueAuDoigt;
     [SerializeField]
     float duration = 5;
     private Coroutine timerCoroutine;
+    public bool finish = true;
+
 
 
     [Header("Input data and sequence part")]
     [SerializeField]
     public List<SequenceInput> sequencesToDo = new List<SequenceInput>();
-    int currentSequenceIndex = 0;
-    public List<Transform> positionForTouche = new List<Transform>();
-    public bool finish = false;
+    private int currentSequenceIndex = 0;
+    private int wrongChar = 0;
     public float timeBeforeNext = 0.5f;
     public float speedBandeauMultipler = 1;
-    
-    
-    int _debug_indexPos = 0; // devra etre set a la main
-
     public float mutliplerSpeedEnter = 5;
-
-    // Use this for initialization
-    void Start () {
-        //sequencesToDo.Clear();
-        /*SequenceInput currentSequence = new SequenceInput();
-        for (int random = 0; random < Random.Range(3, 8); random++)
-        {
-            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
-        }
-        sequencesToDo.Add(currentSequence);
-        currentSequence = new SequenceInput();
-        for (int random = 0; random < Random.Range(3, 8); random++)
-        {
-            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
-        }
-        sequencesToDo.Add(currentSequence);
-        currentSequence = new SequenceInput();
-        for (int random = 0; random < Random.Range(3, 8); random++)
-        {
-            currentSequence.dI.Add(new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position));
-            _debug_indexPos = (_debug_indexPos == (positionForTouche.Count - 1) ? 0 : _debug_indexPos);
-        }
-        sequencesToDo.Add(currentSequence);*/
-
-        Holder.getInstance().setSpeed(speedBandeauMultipler);
-        init();
-    }
+    public bool inputPressed = false;
 
 
+
+    [Header("Dont touch")]
+    public Perso hero;
+    public SpriteRenderer decor;
+    
+    
     public void init()
     {
-        timerCoroutine = StartCoroutine(timerOfDuration(duration));
+        Holder.getInstance().setSpeed(speedBandeauMultipler);
+        if (!startScene)
+            timerCoroutine = StartCoroutine(timerOfDuration(duration));
+
+        decor.sprite = backgroundSprite;
+        hero.setAnimator(animPourHero);
+
+        inputPressed = false;
         currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
         nextSequence();
     }
@@ -98,9 +87,22 @@ public class Scenette : MonoBehaviour {
                     dI.tFX.getFinish();
                     StartCoroutine(deleteThisOneFromCurrentSequence(dI));
                     forbiddenKeys.Add(dI.kc);
+
+                    if (!inputPressed)
+                    {
+                        hero.startEnergitize();
+                        inputPressed = true;
+                    }
                 }
             }
 
+            foreach (char c in Input.inputString)
+            {
+                if (!forbiddenKeys.Contains((KeyCode)c))
+                {
+                    wrongChar++;
+                }
+            }
         }
         else
         {
@@ -150,6 +152,12 @@ public class Scenette : MonoBehaviour {
         while (timeRemain > 0)
         {
             timeRemain -= 0.1f + Time.deltaTime;
+            if(wrongChar != 0)
+            {
+                timeRemain -= 0.4f * wrongChar;
+                wrongChar = 0;
+                Holder.instance.timerHurt();
+            }
             Holder.instance.setTime(timeRemain, false);
             yield return new WaitForSeconds(0.1f);
         }

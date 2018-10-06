@@ -71,7 +71,7 @@ public class Holder : MonoBehaviour {
         {
             poolKey[index] = Instantiate(prefabInstanceToucheFX) as GameObject;
             poolKey[index].SetActive(false);
-
+            poolKey[index].transform.SetParent(transform);
         }
 
     }
@@ -177,7 +177,6 @@ public class Holder : MonoBehaviour {
         {
             Debug.LogError("Pas le place ? Serieux ??? Y a plus de 100 touches actives a l'ecran ? Mais wat ?");
         }
-        output.transform.SetParent(transform);
         output.GetComponent<ToucheFX>().init(worldPosition, kc.ToString());
         output.SetActive(true);
         return output;
@@ -191,6 +190,11 @@ public class Holder : MonoBehaviour {
             maxTime = time;
         }
         gobTimer.SetActive(true);
+    }
+
+    public void timerHurt()
+    {
+        gobTimer.GetComponent<Animator>().SetTrigger("hit"); 
     }
 
     public void setHonor(float newHonor)

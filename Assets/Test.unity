@@ -255,8 +255,11 @@ MonoBehaviour:
   honor: 50
   prefabHonor: {fileID: 1599562243674946, guid: 883bf45efeca4734282788b60aed5918,
     type: 2}
-  prefabBandeauWin: {fileID: 0}
-  prefabBandeauLose: {fileID: 0}
+  prefabBandeauWin: {fileID: 1429722363088972, guid: 966e7aee3ab33dc49bf53b956ce0e405,
+    type: 2}
+  prefabBandeauLose: {fileID: 1216425898324356, guid: e5bba4f17a7d5294fbe0ec736add6fba,
+    type: 2}
+  timeBeforeNext: 1
 --- !u!1 &659062077
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +543,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+  currentSequence:
+  - kc: 0
+    tFX: {fileID: 0}
+    wPos: {x: 0, y: 0}
   positionForTouche:
   - {fileID: 1956016890}
   - {fileID: 282281036}

@@ -11,6 +11,7 @@ public class Scenette : MonoBehaviour {
     public delegate void voidFunc();
     public event voidFunc Sucess;
     public event voidFunc Fail;
+    bool done = false;
 
     [SerializeField]
     float duration = 5;
@@ -19,17 +20,19 @@ public class Scenette : MonoBehaviour {
     [Header("Debug part")]
     public List<DataInput> currentSequence = new List<DataInput>();
     public List<Transform> positionForTouche = new List<Transform>();
-    public bool finish = false;
+    public bool finish = true;
+
+    float timeToEnter = 5;
 
 
 
     // Use this for initialization
     void Start () {
-        
-        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
-        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
-        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
 
+        currentSequence.Clear();
+        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
+        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
+        currentSequence.Add( new DataInput((KeyCode)Random.Range(97, 122), positionForTouche[_debug_indexPos++].position) );
         init();
     }
 
@@ -55,6 +58,7 @@ public class Scenette : MonoBehaviour {
                     StartCoroutine(deleteThisOneFromCurrentSequence(dI));
                 }
             }
+
         }
         else if( !finish )
         {
@@ -65,8 +69,16 @@ public class Scenette : MonoBehaviour {
             }
             LaunchNextSequence();
         }
-		
-	}
+
+        if (currentSequence.Count == 0 && finish && !done)
+        {
+            if (!done)
+            {
+                done = true;
+                Sucess();
+            }
+        }
+    }
     int _debug_DBG = 0;
     void LaunchNextSequence()
     {
@@ -89,26 +101,29 @@ public class Scenette : MonoBehaviour {
     {
         yield return new WaitForEndOfFrame();
         currentSequence.Remove(dI);
-
     }
 
     IEnumerator timerOfDuration(float duration)
     {
         float timeRemain = duration;
-        Holder.instance.setTime(duration);
-        while (timeRemain > 0)
+        while (timeRemain > 0 && !done)
         {
+            Holder.instance.setTime(duration);
             timeRemain -= 0.1f + Time.deltaTime;
             Holder.instance.setTime(timeRemain, false);
+            if (timeRemain <= 0)
+            {
+                FailTouche();
+            }
             
             yield return new WaitForSeconds(0.1f);
         }
         Holder.instance.setTime(0);
-        FailTouche();
     }
 
     void FailTouche()
     {
+        Debug.Log("ji");
         //print("FAIIIIIIIIIIIL");
         foreach (DataInput dI in currentSequence)
         {
@@ -116,7 +131,10 @@ public class Scenette : MonoBehaviour {
         }
         NextScenette();
         currentSequence.Clear();
+        if (Fail != null)
+        {
+            done = true;
+            Fail();
+        }
     }
-
-
 }

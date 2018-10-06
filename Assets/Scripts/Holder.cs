@@ -38,8 +38,15 @@ public class Holder : MonoBehaviour {
     public GameObject prefabBandeauLose;
     GameObject gobBandeau;
 
+    [SerializeField]
+    float timeBeforeNext = 1;
+
     private void Start()
     {
+        currentScenette = FindObjectOfType<Scenette>();
+        currentScenette.Fail += fail;
+        currentScenette.Sucess += succ;
+
         gobTimer = Instantiate(prefabTimer, this.transform) as GameObject;
         gobHonor = Instantiate(prefabHonor, transform);
 
@@ -152,5 +159,17 @@ public class Holder : MonoBehaviour {
     public void setHonor(float newHonor)
     {
         honor = newHonor;
+    }
+
+    IEnumerator nextSceneCoroutine()
+    {
+        yield return new WaitForSeconds(timeBeforeNext);
+        nextSceneVisu();
+        yield return 0;
+    }
+
+    public void nextSceneVisu()
+    {
+
     }
 }

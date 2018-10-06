@@ -12,6 +12,10 @@ public class Scenette : MonoBehaviour {
     public event voidFunc Sucess;
     public event voidFunc Fail;
 
+    [SerializeField]
+    float time;
+    
+
     [Header("Debug part")]
     public List<KeyCode> premiereSequence = new List<KeyCode>();
     public GameObject toucheFXPrefab;

@@ -31,8 +31,7 @@ public class Holder : MonoBehaviour {
     RectTransform rectHonor;
     float xDiffHonor;
 
-    [SerializeField]
-    List<GameObject> scenetteListTemp = new List<GameObject>();
+    public List<GameObject> scenetteListTemp = new List<GameObject>();
     Queue<GameObject> allScenette;
     Scenette currentScenette;
     Scenette destroyingScenette;
@@ -40,9 +39,7 @@ public class Holder : MonoBehaviour {
     public GameObject prefabBandeauWin;
     public GameObject prefabBandeauLose;
     GameObject gobBandeau;
-
-    [SerializeField]
-    float timeBeforeNext = 0.5f;
+    float speedBandeau = 1;
 
     private void Start()
     {
@@ -77,6 +74,16 @@ public class Holder : MonoBehaviour {
 
         }
 
+    }
+
+    public void setSpeed(float speed)
+    {
+        speedBandeau = speed;
+    }
+
+    public float getSpeed()
+    {
+        return speedBandeau;
     }
 
     public void nextScene()
@@ -186,7 +193,7 @@ public class Holder : MonoBehaviour {
 
     IEnumerator nextSceneCoroutine()
     {
-        yield return new WaitForSeconds(timeBeforeNext);
+        yield return new WaitForSeconds(currentScenette.timeBeforeNext);
         nextScene();
         yield return 0;
     }

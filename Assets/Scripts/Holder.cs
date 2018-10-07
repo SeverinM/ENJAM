@@ -216,7 +216,8 @@ public class Holder : MonoBehaviour {
 
         if (shake > 0)
         {
-            Camera.main.transform.localPosition = Random.insideUnitSphere * shake;
+            Vector2 rand = Random.insideUnitCircle * shake;
+            Camera.main.transform.localPosition = new Vector3(rand.x, rand.y, -10);
             shake -= Time.deltaTime * decreaseFactor;
         }
         else

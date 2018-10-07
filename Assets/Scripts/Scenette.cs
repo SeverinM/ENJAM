@@ -217,7 +217,7 @@ public class Scenette : MonoBehaviour {
                 Holder.instance.Play(failClic);
 
                 //Ca fait bugger
-                //Holder.instance.shake = 1;
+                Holder.instance.shake += 1;
             }
             Holder.instance.setTime(timeRemain, false);
             yield return new WaitForSeconds(0.1f);

@@ -363,8 +363,9 @@ MonoBehaviour:
   textSizeVictory: 10
   textSizeDefeat: 10
   animPourHero: 5
-  duration: 5
+  duration: 20
   finish: 0
+  isWE: 1
   sequencesToDo:
   - dI:
     - kc: 116
@@ -407,9 +408,9 @@ MonoBehaviour:
     - kc: 104
       tFX: {fileID: 0}
       wPos: {x: 4, y: 0}
-  timeBeforeNext: 1
-  speedBandeauMultipler: 1
-  mutliplerSpeedEnter: 1
+  timeBeforeNext: 3
+  speedBandeauMultipler: 0.5
+  mutliplerSpeedEnter: 0.5
   inputPressed: 0
   hero: {fileID: 114841878518784726}
   decor: {fileID: 212690185792406888}

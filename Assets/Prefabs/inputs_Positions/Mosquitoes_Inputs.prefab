@@ -365,6 +365,7 @@ MonoBehaviour:
   animPourHero: 1
   duration: 5
   finish: 0
+  isWE: 0
   sequencesToDo:
   - dI:
     - kc: 98

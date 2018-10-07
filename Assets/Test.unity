@@ -220,7 +220,8 @@ MonoBehaviour:
   backgroundSprite: {fileID: 21300000, guid: 9314cd60e5d0dd345b665e40eab9d74f, type: 3}
   textDefeat: Wait... how do you fail the start scene ? Wow... You are on strong foe
   textVictory: It's time to exercice for the incoming week
-  textSize: 10
+  textSizeVictory: 10
+  textSizeDefeat: 10
   animPourHero: 7
   duration: 5
   finish: 0
@@ -1249,7 +1250,8 @@ MonoBehaviour:
   backgroundSprite: {fileID: 0}
   textDefeat: No !
   textVictory: Yes !
-  textSize: 10
+  textSizeVictory: 10
+  textSizeDefeat: 10
   animPourHero: 0
   duration: 5
   finish: 0

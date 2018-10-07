@@ -157,7 +157,7 @@ public class Scenette : MonoBehaviour {
 
             foreach (char c in Input.inputString)
             {
-                if (!forbiddenKeys.Contains((KeyCode)c))
+                if (!forbiddenKeys.Contains((KeyCode)c) && (KeyCode)c != KeyCode.LeftShift && (KeyCode)c != KeyCode.RightShift)
                 {
                     wrongChar++;
                 }

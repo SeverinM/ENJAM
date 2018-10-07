@@ -25,6 +25,10 @@ public class ToucheFX : MonoBehaviour {
 
     public void init(Vector2 worldPosition, string c )
     {
+        if (c.StartsWith("Alpha"))
+        {
+            c = c.Substring(c.Length - 1);
+        }
         textChar.text = c;
 
         Vector3 positionScreen = Holder.instance.mainCamera.WorldToScreenPoint(worldPosition);

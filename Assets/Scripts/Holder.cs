@@ -33,9 +33,8 @@ public class Holder : MonoBehaviour {
     public GameObject prefabHonor;
     public float honorLosePerTouch;
     public float honorMaxPerWin;
-    GameObject gobHonor;
     [SerializeField]
-    GameObject gobHonor2;
+    GameObject gobHonor;
     RectTransform rectHonor;
     float yDiffHonor;
     public Gradient grd;
@@ -46,7 +45,7 @@ public class Holder : MonoBehaviour {
     public Queue<GameObject> allScenette;
     public GameObject victoire;
     public GameObject defaite;
-    Scenette currentScenette;
+    public Scenette currentScenette;
     Scenette destroyingScenette;
     public GameObject moustiqueGO;
 
@@ -67,6 +66,7 @@ public class Holder : MonoBehaviour {
     [Header("Ecran secoué")]
     public float shake = 1;
     public float decreaseFactor = 1;
+    public float minimum = 0;
 
     bool isWE;
 
@@ -85,7 +85,7 @@ public class Holder : MonoBehaviour {
         gobHonor = Instantiate(prefabHonor, transform);
 
         rect = gobTimer.GetComponent<RectTransform>();
-        rectHonor = gobHonor.transform.GetComponent<RectTransform>();
+        rectHonor = gobHonor.transform.GetChild(0).GetComponent<RectTransform>();
 
         xDiff = rect.anchorMax.x - rect.anchorMin.x;
         yDiffHonor = rectHonor.anchorMax.y - rectHonor.anchorMin.y;
@@ -177,6 +177,7 @@ public class Holder : MonoBehaviour {
         }
 
         isWE = currentScenette.isWE;
+        gobTimer.SetActive(!currentScenette.falseScene);
         currentScenette.init();
     }
 
@@ -184,8 +185,6 @@ public class Holder : MonoBehaviour {
     //Fin trnaisition
     public void activate()
     {
-        gobHonor.SetActive(true);
-        gobHonor2.SetActive(true);
         if (destroyingScenette != null)
             Destroy(destroyingScenette.gameObject);
         Destroy(gobBandeau);
@@ -193,23 +192,21 @@ public class Holder : MonoBehaviour {
 
     public void succ()
     {
-        gobHonor.SetActive(false);
         gobTimer.SetActive(false);
-        gobHonor2.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
         gobBandeau.GetComponent<Bandeaux>().init(isWE, false,currentScenette.textVictory, currentScenette.textSizeVictory);
         StartCoroutine(nextSceneCoroutine());
+        minimum = shake = 0;
     }
 
     public void fail()
     {
-        gobHonor.SetActive(false);
-        gobHonor2.SetActive(false);
         gobTimer.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
         gobBandeau.GetComponent<Bandeaux>().init(isWE, true,currentScenette.textDefeat, currentScenette.textSizeDefeat);
         StartCoroutine(nextSceneCoroutine());
         audio.PlayOneShot(failSound, 0.5f);
+        minimum = shake = 0;
     }
 
     private void Update()
@@ -230,7 +227,7 @@ public class Holder : MonoBehaviour {
             gobHonor.GetComponent<UnityEngine.UI.Image>().color = grd.Evaluate(honor / honorMax);
         }
 
-        if (shake > 0)
+        if (shake >= minimum)
         {
             Vector2 rand = Random.insideUnitCircle * shake;
             Camera.main.transform.localPosition = new Vector3(rand.x, rand.y, -10);
@@ -238,7 +235,7 @@ public class Holder : MonoBehaviour {
         }
         else
         {
-            shake = 0.0f;
+            shake = minimum;
         }
     }
 

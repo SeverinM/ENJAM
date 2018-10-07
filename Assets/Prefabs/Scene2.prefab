@@ -394,6 +394,9 @@ MonoBehaviour:
   inputPressed: 0
   hero: {fileID: 114804136009593646}
   decor: {fileID: 212712017721009140}
+  failClic: {fileID: 0}
+  successClic: {fileID: 0}
+  successScenette: {fileID: 0}
 --- !u!114 &114804136009593646
 MonoBehaviour:
   m_ObjectHideFlags: 1

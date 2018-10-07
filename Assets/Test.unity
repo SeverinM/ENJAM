@@ -248,6 +248,9 @@ MonoBehaviour:
   inputPressed: 0
   hero: {fileID: 1247282692}
   decor: {fileID: 1305429387}
+  failClic: {fileID: 0}
+  successClic: {fileID: 0}
+  successScenette: {fileID: 0}
 --- !u!4 &280980381
 Transform:
   m_ObjectHideFlags: 0
@@ -263,7 +266,7 @@ Transform:
   - {fileID: 1247282690}
   - {fileID: 1305429386}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355717851
 GameObject:
@@ -352,7 +355,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -390,6 +393,14 @@ MonoBehaviour:
     type: 2}
   prefabBandeauLose: {fileID: 1216425898324356, guid: e5bba4f17a7d5294fbe0ec736add6fba,
     type: 2}
+  successClic: {fileID: 8300000, guid: 49a3395e4c7727245b77097d1c1001df, type: 3}
+  failClic: {fileID: 8300000, guid: 2a7b970fb2d8c3c4485a234bb0237fb7, type: 3}
+  soundsSuccess:
+  - {fileID: 8300000, guid: 200b32338b0ab3f49844663b66710f52, type: 3}
+  - {fileID: 8300000, guid: 4902670ac8459894ba0417a764320e90, type: 3}
+  - {fileID: 8300000, guid: ec26877cfb9d6d64d997058907895a2f, type: 3}
+  soundsFail:
+  - {fileID: 8300000, guid: 501e637c7ec3a114c9a11c52abe5ac95, type: 3}
 --- !u!1 &554149312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1092,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402643561
 GameObject:
@@ -1108,7 +1119,7 @@ Transform:
   m_LocalPosition: {x: -2.58, y: -3.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 826941965}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608578003
@@ -1171,7 +1182,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898819100
 GameObject:
@@ -1252,7 +1263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1956016889
 GameObject:
@@ -1340,6 +1351,9 @@ MonoBehaviour:
   inputPressed: 0
   hero: {fileID: 0}
   decor: {fileID: 0}
+  failClic: {fileID: 0}
+  successClic: {fileID: 0}
+  successScenette: {fileID: 0}
 --- !u!4 &1994931082
 Transform:
   m_ObjectHideFlags: 0
@@ -1354,7 +1368,7 @@ Transform:
   - {fileID: 1869198}
   - {fileID: 1070647733}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1994931083
 SpriteRenderer:

@@ -119,13 +119,11 @@ public class Holder : MonoBehaviour {
             currentScenette.Sucess -= succ;
             currentScenette.Fail -= fail;
             destroyingScenette = currentScenette;
-            currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
-            currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Transition";
+            //currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
             currentScenette.Sucess += succ;
             currentScenette.Fail += succ;
         }
-
-        GameObject obj = allScenette.Dequeue();
+        obj = allScenette.Dequeue();
         obj.SetActive(true);
         currentScenette = Instantiate(obj).GetComponent<Scenette>();
         //currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
@@ -141,7 +139,6 @@ public class Holder : MonoBehaviour {
         Destroy(destroyingScenette.gameObject);
         Destroy(gobBandeau);
         currentScenette.enabled = true;
-        currentScenette.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
     }
 
     public void succ()

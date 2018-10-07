@@ -13,6 +13,7 @@ public enum animHero
     allerAuTaf,
     escalierMontee,
     escalierDesc,
+    toilettes,
     WEdormir,
     WEsquat,
     WEfooting,

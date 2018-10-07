@@ -132,12 +132,12 @@ public class Holder : MonoBehaviour {
         audio.PlayOneShot(next[Random.Range(0, next.Count)], 0.5f);
         GameObject obj = null;
 
-        if(honor < 0)
+        if(honor <= 0)
         {
             allScenette.Clear();
             allScenette.Enqueue(defaite);
         }
-        else if(honor > honorMax)
+        else if(honor >= honorMax)
         {
             allScenette.Clear();
             allScenette.Enqueue(victoire);

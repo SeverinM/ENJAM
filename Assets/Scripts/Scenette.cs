@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Scenette : MonoBehaviour {
 
@@ -127,7 +128,10 @@ public class Scenette : MonoBehaviour {
         ////TOD DO DEBUG NOPE
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            if (!falseScene)
+                Application.Quit();
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         /////End to do nope
     }

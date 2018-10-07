@@ -359,12 +359,12 @@ MonoBehaviour:
   startScene: 0
   falseScene: 0
   stickmou: 0
-  backgroundSprite: {fileID: 0}
+  backgroundSprite: {fileID: 21300000, guid: 2e6b822f4e73d8446ba2a3eda7e74496, type: 3}
   textDefeat: Maybe I should just stay locked in here forever
   textVictory: With proper technique, everything becomes easy
   textSizeVictory: 15
   textSizeDefeat: 15
-  animPourHero: 0
+  animPourHero: 9
   duration: 5
   finish: 0
   isWE: 0

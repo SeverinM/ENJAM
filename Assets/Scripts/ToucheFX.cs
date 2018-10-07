@@ -14,11 +14,14 @@ public class ToucheFX : MonoBehaviour {
     private Vector2 realPosition;
     private Vector3 offset = new Vector3(-3.4f,-4.1f,-4f);
     private Animator moustiqueLinked;
+    
 
     public void Awake()
     {
         _anima = this.GetComponent<Animator>();
         _rectTransform = this.GetComponent<RectTransform>();
+
+        _rectTransform.sizeDelta = new Vector2(Screen.height / 11, Screen.height / 11) ;
 
         _anima.speed = Random.Range(0.5f,1.7f);
     }

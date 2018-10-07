@@ -384,7 +384,7 @@ MonoBehaviour:
   prefabInstanceToucheFX: {fileID: 1166849707445052, guid: a1395376d687c61408ad43f7b5f8db40,
     type: 2}
   mainCamera: {fileID: 1898819103}
-  honor: 100
+  honor: 95
   prefabHonor: {fileID: 1599562243674946, guid: 883bf45efeca4734282788b60aed5918,
     type: 2}
   honorLosePerTouch: 10
@@ -426,6 +426,8 @@ MonoBehaviour:
   - {fileID: 1624982078352482, guid: ba4d45a3cf27c9b48adff17d4d5fb882, type: 2}
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
   - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
+  victoire: {fileID: 1518506589080430, guid: 3ec96580a2ae77740b8e0d53f16360ec, type: 2}
+  defaite: {fileID: 1821521040789182, guid: 5c65a02b2b55d744186db80f9dbbcc3f, type: 2}
   moustiqueGO: {fileID: 1858693803160826, guid: 2e710858718c8ba42a6a5862c4f299ac,
     type: 2}
   prefabBandeau: {fileID: 1033993685558718, guid: 966e7aee3ab33dc49bf53b956ce0e405,

@@ -44,6 +44,8 @@ public class Holder : MonoBehaviour {
     [Header("Gestion des scenettes")]
     public List<GameObject> scenetteListTemp = new List<GameObject>();
     public Queue<GameObject> allScenette;
+    public GameObject victoire;
+    public GameObject defaite;
     Scenette currentScenette;
     Scenette destroyingScenette;
     public GameObject moustiqueGO;
@@ -131,6 +133,18 @@ public class Holder : MonoBehaviour {
     public void nextScene()
     {
         GameObject obj = null;
+
+        if(honor < 0)
+        {
+            allScenette.Clear();
+            allScenette.Enqueue(defaite);
+        }
+        else if(honor > honorMax)
+        {
+            allScenette.Clear();
+            allScenette.Enqueue(victoire);
+        }
+
         if (currentScenette != null)
         {
             currentScenette.Sucess -= succ;

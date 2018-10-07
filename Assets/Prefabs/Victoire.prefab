@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startScene: 0
   falseScene: 1
+  stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 2eee60d54c946a44091ad34142a1ee2a, type: 3}
   textDefeat: No !
   textVictory: Yes !

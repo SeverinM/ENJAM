@@ -45,7 +45,7 @@ public class Holder : MonoBehaviour {
     public Queue<GameObject> allScenette;
     public GameObject victoire;
     public GameObject defaite;
-    Scenette currentScenette;
+    public Scenette currentScenette;
     Scenette destroyingScenette;
     public GameObject moustiqueGO;
 
@@ -227,7 +227,7 @@ public class Holder : MonoBehaviour {
             gobHonor.GetComponent<UnityEngine.UI.Image>().color = grd.Evaluate(honor / honorMax);
         }
 
-        if (shake > minimum)
+        if (shake >= minimum)
         {
             Vector2 rand = Random.insideUnitCircle * shake;
             Camera.main.transform.localPosition = new Vector3(rand.x, rand.y, -10);

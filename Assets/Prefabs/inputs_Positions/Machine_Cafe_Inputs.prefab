@@ -372,7 +372,7 @@ MonoBehaviour:
   backgroundSprite: {fileID: 21300000, guid: 7c77d3216d906a44d9baf7407903a5e8, type: 3}
   textDefeat: My body is too weak to enjoy this godly beverage
   textVictory: WRYYYYYYYY !!
-  textSize: 10
+  textSize: 30
   animPourHero: 0
   duration: 5
   finish: 0

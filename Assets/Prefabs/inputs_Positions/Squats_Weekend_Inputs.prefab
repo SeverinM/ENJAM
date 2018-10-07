@@ -364,7 +364,7 @@ MonoBehaviour:
   textVictory: I have never felt stronger !
   textSizeVictory: 15
   textSizeDefeat: 15
-  animPourHero: 10
+  animPourHero: 11
   duration: 20
   finish: 0
   isWE: 1

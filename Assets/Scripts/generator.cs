@@ -25,29 +25,29 @@ public class generator : MonoBehaviour {
         
         for (int i = 0; i < nombre; i++)
         {
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
-
-
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-
-            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
-
-            hold.allScenette.Enqueue(randomChoice(jourSemaine));
-            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
-
             hold.allScenette.Enqueue(randomChoice(jourWE));
             hold.allScenette.Enqueue(randomChoice(nuitWE));
 
             hold.allScenette.Enqueue(randomChoice(jourWE));
             hold.allScenette.Enqueue(randomChoice(nuitWE));
+
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
+
+
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+
+            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
+
+            hold.allScenette.Enqueue(randomChoice(jourSemaine));
+            hold.allScenette.Enqueue(randomChoice(nuitSemaine));
 
         }
 	}

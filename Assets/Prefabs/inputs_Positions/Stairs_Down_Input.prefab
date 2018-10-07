@@ -118,7 +118,7 @@ GameObject:
   m_Layer: 0
   m_Name: PositionOuApparaitre
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -371,56 +371,56 @@ MonoBehaviour:
   startScene: 0
   falseScene: 0
   stickmou: 0
-  backgroundSprite: {fileID: 21300000, guid: 016adaae9560b0e4abca2b2a56ae0e35, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: b2b525a589d07ed4f9b57634cd5bdfa1, type: 3}
   textDefeat: My weakness disgusts me
   textVictory: To be continued !
   textSizeVictory: 20
   textSizeDefeat: 20
-  animPourHero: 0
+  animPourHero: 8
   duration: 5
   finish: 0
   isWE: 0
   sequencesToDo:
   - dI:
-    - kc: 119
+    - kc: 105
       tFX: {fileID: 0}
-      wPos: {x: -2, y: -5}
-    - kc: 113
+      wPos: {x: 6, y: -1}
+    - kc: 106
       tFX: {fileID: 0}
-      wPos: {x: -4, y: -3}
-    - kc: 97
+      wPos: {x: 4, y: -2}
+    - kc: 110
       tFX: {fileID: 0}
-      wPos: {x: -6, y: -1}
+      wPos: {x: 2, y: -3}
   - dI:
-    - kc: 120
+    - kc: 117
       tFX: {fileID: 0}
-      wPos: {x: -2, y: -5}
-    - kc: 115
+      wPos: {x: 6, y: -1}
+    - kc: 104
       tFX: {fileID: 0}
-      wPos: {x: -4, y: -3}
-    - kc: 122
+      wPos: {x: 4, y: -2}
+    - kc: 98
       tFX: {fileID: 0}
-      wPos: {x: -6, y: -1}
+      wPos: {x: 2, y: -3}
   - dI:
-    - kc: 99
+    - kc: 121
       tFX: {fileID: 0}
-      wPos: {x: -2, y: -5}
-    - kc: 100
+      wPos: {x: 6, y: -1}
+    - kc: 103
       tFX: {fileID: 0}
-      wPos: {x: -4, y: -3}
-    - kc: 101
-      tFX: {fileID: 0}
-      wPos: {x: -6, y: -1}
-  - dI:
+      wPos: {x: 4, y: -2}
     - kc: 118
       tFX: {fileID: 0}
-      wPos: {x: -2, y: -5}
+      wPos: {x: 2, y: -3}
+  - dI:
+    - kc: 116
+      tFX: {fileID: 0}
+      wPos: {x: 6, y: -1}
     - kc: 102
       tFX: {fileID: 0}
-      wPos: {x: -4, y: -3}
-    - kc: 114
+      wPos: {x: 4, y: -2}
+    - kc: 99
       tFX: {fileID: 0}
-      wPos: {x: -6, y: -1}
+      wPos: {x: 2, y: -3}
   timeBeforeNext: 2
   speedBandeauMultipler: 1.2
   mutliplerSpeedEnter: 2

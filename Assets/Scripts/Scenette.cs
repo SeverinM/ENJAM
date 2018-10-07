@@ -176,7 +176,8 @@ public class Scenette : MonoBehaviour {
         //degueulasse but will work
         foreach(Transform tf in GetComponentsInChildren<Transform>())
             tf.position += Vector3.forward;
-        StopCoroutine(timerCoroutine);
+        if(!startScene)
+            StopCoroutine(timerCoroutine);
         finish = true;
     }
 

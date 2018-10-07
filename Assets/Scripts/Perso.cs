@@ -10,7 +10,8 @@ public enum animHero
     pigeon,
     WEdormir,
     WEsquat,
-    WEfooting
+    WEfooting,
+    not
 }
 
 public class Perso : MonoBehaviour {

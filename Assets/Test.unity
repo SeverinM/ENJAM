@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &280980380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,35 +216,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e5f5bb19a33f84d90a028deef7aa7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: 0
-  backgroundSprite: {fileID: 21300000, guid: 016adaae9560b0e4abca2b2a56ae0e35, type: 3}
-  textDefeat: No !
-  textVictory: Yes !
+  startScene: 1
+  backgroundSprite: {fileID: 21300000, guid: 9314cd60e5d0dd345b665e40eab9d74f, type: 3}
+  textDefeat: Wait... how do you fail the start scene ? Wow... You are on strong foe
+  textVictory: It's time to exercice for the incoming week
   textSize: 10
-  animPourHero: 0
+  animPourHero: 7
   duration: 5
   finish: 0
   sequencesToDo:
   - dI:
     - kc: 116
       tFX: {fileID: 0}
-      wPos: {x: 2.1, y: 2.9}
+      wPos: {x: -2.95, y: -4}
     - kc: 97
       tFX: {fileID: 0}
-      wPos: {x: 5.3, y: 1.7}
-    - kc: 112
+      wPos: {x: -1.7, y: -4}
+    - kc: 115
       tFX: {fileID: 0}
-      wPos: {x: 6.2, y: -1.3}
-  - dI:
-    - kc: 98
+      wPos: {x: -4.2, y: -4}
+    - kc: 116
       tFX: {fileID: 0}
-      wPos: {x: -5, y: -3}
-    - kc: 117
+      wPos: {x: 0.8, y: -4}
+    - kc: 114
       tFX: {fileID: 0}
-      wPos: {x: 0, y: -4}
-    - kc: 103
-      tFX: {fileID: 0}
-      wPos: {x: 5, y: -3.2}
+      wPos: {x: -0.45, y: -4}
   timeBeforeNext: 1
   speedBandeauMultipler: 3
   mutliplerSpeedEnter: 3
@@ -269,7 +265,7 @@ Transform:
   - {fileID: 1247282690}
   - {fileID: 1305429386}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355717851
 GameObject:
@@ -359,7 +355,7 @@ RectTransform:
   m_Children:
   - {fileID: 1065235126}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -401,62 +397,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec26877cfb9d6d64d997058907895a2f, type: 3}
   soundsFail:
   - {fileID: 8300000, guid: 501e637c7ec3a114c9a11c52abe5ac95, type: 3}
---- !u!1001 &471030762
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 95414534763211918, guid: 2b791574819a56a4ebde324a126feef2,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-      propertyPath: m_Name
-      value: ScenetteTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 114251751459785080, guid: 2b791574819a56a4ebde324a126feef2,
-        type: 2}
-      propertyPath: duration
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &554149312
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +421,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 554149312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2, y: -3.2, z: 0}
+  m_LocalPosition: {x: 0.77, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 280980381}
@@ -610,7 +550,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c30b7f944d40e9c4792283505e06dec1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -618,7 +558,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &824406574
 GameObject:
@@ -758,7 +698,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9820f31fc0f5bf6438e809cada13323c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -766,7 +706,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1065235125
 GameObject:
@@ -1016,7 +956,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6a2b5d69dc52d364e9289d75208509ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9314cd60e5d0dd345b665e40eab9d74f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1090,7 +1030,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7770757450aa09543bd7d66c84e16c60, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1098,36 +1038,8 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
---- !u!1 &1402643561
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1402643562}
-  m_Layer: 0
-  m_Name: PositionOuApparaitre
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1402643562
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1402643561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.58, y: -3.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608578003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898819100
 GameObject:
@@ -1269,7 +1181,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1956016889
 GameObject:
@@ -1377,7 +1289,7 @@ Transform:
   - {fileID: 1869198}
   - {fileID: 1070647733}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1994931083
 SpriteRenderer:
@@ -1564,5 +1476,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -449,6 +449,11 @@ Prefab:
       propertyPath: m_Name
       value: ScenetteTest
       objectReference: {fileID: 0}
+    - target: {fileID: 114251751459785080, guid: 2b791574819a56a4ebde324a126feef2,
+        type: 2}
+      propertyPath: duration
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
   m_IsPrefabParent: 0
@@ -779,7 +784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1065235126
 RectTransform:
   m_ObjectHideFlags: 0

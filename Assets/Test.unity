@@ -259,7 +259,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 280980377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 554149313}
@@ -393,7 +393,7 @@ MonoBehaviour:
   - {fileID: 1624982078352482, guid: ba4d45a3cf27c9b48adff17d4d5fb882, type: 2}
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
   - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
-  prefabBandeau: {fileID: 1429722363088972, guid: 966e7aee3ab33dc49bf53b956ce0e405,
+  prefabBandeau: {fileID: 1033993685558718, guid: 966e7aee3ab33dc49bf53b956ce0e405,
     type: 2}
   successClic: {fileID: 8300000, guid: 49a3395e4c7727245b77097d1c1001df, type: 3}
   failClic: {fileID: 8300000, guid: 2a7b970fb2d8c3c4485a234bb0237fb7, type: 3}

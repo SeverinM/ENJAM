@@ -56,8 +56,7 @@ public class Scenette : MonoBehaviour {
     
     public void init()
     {
-
-        print("Init");
+        //print("init by scenette, parfum pour bit");
         nb = 0;
         Holder hold = Holder.instance;
         
@@ -86,7 +85,6 @@ public class Scenette : MonoBehaviour {
         }
 
         this.transform.position -= Vector3.forward;
-        print("init by scenette, parfum pour bit");
         if(!startScene)
             Holder.instance.setTime(duration, true);
         decor.sprite = backgroundSprite;
@@ -101,6 +99,9 @@ public class Scenette : MonoBehaviour {
         if (!startScene)
             timerCoroutine = StartCoroutine(timerOfDuration(duration));
         nextSequence();
+
+        //test holder part :
+        Holder.instance.activate();
     }
 
     
@@ -154,11 +155,10 @@ public class Scenette : MonoBehaviour {
         }
         else
         {
-            print("nextSequence : "+ currentSequenceIndex + "for : " + this.gameObject.name);
+            //print("nextSequence : "+ currentSequenceIndex + "for : " + this.gameObject.name);
             nextSequence();
         }
     }
-
 
     void nextSequence()
     {
@@ -183,12 +183,13 @@ public class Scenette : MonoBehaviour {
 
     void NextScenette()
     {
-        print("Yep");
-        //degueulasse but will work
-        foreach(Transform tf in GetComponentsInChildren<Transform>())
-            tf.position += Vector3.forward;
-        if(!startScene)
+        if (!startScene)
+        {
             StopCoroutine(timerCoroutine);
+            this.GetComponent<Animator>().SetTrigger("end");
+        }
+        else
+            this.transform.position += Vector3.forward * 7;
         finish = true;
     }
 

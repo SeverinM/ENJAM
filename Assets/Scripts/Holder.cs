@@ -147,10 +147,12 @@ public class Holder : MonoBehaviour {
     //Fin trnaisition
     public void activate()
     {
+        Debug.Log("did I ever get called ?");
         gobHonor.SetActive(true);
-        Destroy(destroyingScenette.gameObject);
+        if(destroyingScenette != null)
+            Destroy(destroyingScenette.gameObject);
         Destroy(gobBandeau);
-        currentScenette.enabled = true;
+        //currentScenette.enabled = true;
     }
 
     public void succ()

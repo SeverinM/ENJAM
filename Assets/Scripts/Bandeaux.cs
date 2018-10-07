@@ -46,10 +46,11 @@ public class Bandeaux : MonoBehaviour {
         {
             time += Time.deltaTime * Holder.getInstance().getSpeed();
             Vector3 vec = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, curve.Evaluate(time) * Screen.height, zDep));
-            transform.position = new Vector3(vec.x, vec.y, 1);
+            transform.position = new Vector3(vec.x, vec.y, zDep);
         }
         else if(transform.position.z == zDep)
         {
+            print("Here == zDep");
             transform.position -=  Vector3.forward * finalZ;
         }
 	}

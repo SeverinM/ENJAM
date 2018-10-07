@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429722363088972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0.13, z: -0.5}
+  m_LocalPosition: {x: -0.2, y: 0.13, z: -0.4}
   m_LocalScale: {x: 0.99646205, y: 0.54698145, z: 1}
   m_Children:
   - {fileID: 4044295552076846}
@@ -232,8 +232,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxTime: 10
-  finalZ: 1.5
+  maxTime: 1
+  finalZ: -0.9
   WE: {fileID: 21300000, guid: 37e4386bcd5c2824c8f256bc02df82fc, type: 3}
   week: {fileID: 21300000, guid: f72581bc6ef2dfc41955abc9a161b396, type: 3}
   victory: {r: 0, g: 1, b: 0.22006416, a: 1}
@@ -371,5 +371,5 @@ SpriteRenderer:
   m_Size: {x: 10.24, y: 6.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0

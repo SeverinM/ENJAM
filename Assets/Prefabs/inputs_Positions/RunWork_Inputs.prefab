@@ -393,7 +393,7 @@ MonoBehaviour:
       wPos: {x: 1, y: 4}
     - kc: 97
       tFX: {fileID: 0}
-      wPos: {x: 1, y: 4}
+      wPos: {x: 2, y: 4}
   - dI:
     - kc: 103
       tFX: {fileID: 0}

@@ -56,6 +56,8 @@ public class Scenette : MonoBehaviour {
     
     public void init()
     {
+
+        print("Init");
         nb = 0;
         Holder hold = Holder.instance;
         
@@ -152,6 +154,7 @@ public class Scenette : MonoBehaviour {
         }
         else
         {
+            print("nextSequence : "+ currentSequenceIndex + "for : " + this.gameObject.name);
             nextSequence();
         }
     }

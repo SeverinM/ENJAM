@@ -20,6 +20,7 @@ public class Perso : MonoBehaviour {
 
     public void setAnimator(animHero aH)
     {
+        Debug.LogWarning("I  have been called by "+this.transform.parent.name);
         animatorHero.SetTrigger("quit");
         animatorHero.SetTrigger(aH.ToString());
     }

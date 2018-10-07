@@ -127,6 +127,7 @@ public class Holder : MonoBehaviour {
             destroyingScenette = currentScenette;
             currentScenette.Sucess += succ;
             currentScenette.Fail += succ;
+            currentScenette.init();
         }
 
         if (allScenette.Count > 0)
@@ -137,12 +138,7 @@ public class Holder : MonoBehaviour {
             currentScenette.Sucess += succ;
             currentScenette.Fail += fail;
             currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
-        }
-       
-
-        if (allScenette.Count > 0)
-        {
-            currentScenette.GetComponent<Animator>().SetFloat("speed", allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
+            currentScenette.init();
         }
     }
 

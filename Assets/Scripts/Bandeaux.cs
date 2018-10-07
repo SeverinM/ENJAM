@@ -49,7 +49,7 @@ public class Bandeaux : MonoBehaviour {
         }
         else if(transform.position.z == zDep)
         {
-            print("Here == zDep");
+            //print("Here == zDep");
             transform.position -=  Vector3.forward * finalZ;
         }
 	}

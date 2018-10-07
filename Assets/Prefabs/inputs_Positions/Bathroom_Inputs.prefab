@@ -150,7 +150,7 @@ GameObject:
   m_Layer: 0
   m_Name: PositionOuApparaitre
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -364,7 +364,7 @@ MonoBehaviour:
   textVictory: With proper technique, \j everything becomes easy
   textSizeVictory: 15
   textSizeDefeat: 15
-  animPourHero: 0
+  animPourHero: 9
   duration: 6
   finish: 0
   isWE: 0

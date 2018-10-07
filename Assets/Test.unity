@@ -227,7 +227,7 @@ MonoBehaviour:
   animPourHero: 13
   duration: 5
   finish: 0
-  isWE: 0
+  isWE: 1
   sequencesToDo:
   - dI:
     - kc: 116
@@ -1311,7 +1311,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1691,7 +1691,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -33,8 +33,11 @@ public class Holder : MonoBehaviour {
     public float honorLosePerTouch;
     public float honorMaxPerWin;
     GameObject gobHonor;
+    [SerializeField]
+    GameObject gobHonor2;
     RectTransform rectHonor;
-    float xDiffHonor;
+    float yDiffHonor;
+    public Gradient grd;
 
 
     [Header("Gestion des scenettes")]
@@ -75,10 +78,10 @@ public class Holder : MonoBehaviour {
         gobHonor = Instantiate(prefabHonor, transform);
 
         rect = gobTimer.GetComponent<RectTransform>();
-        rectHonor = gobHonor.GetComponent<RectTransform>();
+        rectHonor = gobHonor.transform.GetComponent<RectTransform>();
 
         xDiff = rect.anchorMax.x - rect.anchorMin.x;
-        xDiffHonor = rectHonor.anchorMax.x - rectHonor.anchorMin.x;
+        yDiffHonor = rectHonor.anchorMax.y - rectHonor.anchorMin.y;
 
         if (instance != null)
         {
@@ -162,7 +165,8 @@ public class Holder : MonoBehaviour {
     {
         Debug.Log("did I ever get called ?");
         gobHonor.SetActive(true);
-        if(destroyingScenette != null)
+        gobHonor2.SetActive(true);
+        if (destroyingScenette != null)
             Destroy(destroyingScenette.gameObject);
         Destroy(gobBandeau);
         //currentScenette.enabled = true;
@@ -172,6 +176,7 @@ public class Holder : MonoBehaviour {
     {
         gobHonor.SetActive(false);
         gobTimer.SetActive(false);
+        gobHonor2.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
         gobBandeau.GetComponent<Bandeaux>().init(false, false,currentScenette.textVictory, currentScenette.textSizeVictory);
         StartCoroutine(nextSceneCoroutine());
@@ -180,6 +185,7 @@ public class Holder : MonoBehaviour {
     public void fail()
     {
         gobHonor.SetActive(false);
+        gobHonor2.SetActive(false);
         gobTimer.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
         gobBandeau.GetComponent<Bandeaux>().init(false, true,currentScenette.textDefeat, currentScenette.textSizeDefeat);
@@ -200,7 +206,8 @@ public class Holder : MonoBehaviour {
 
         if (gobHonor.activeSelf)
         {
-            rectHonor.anchorMax = new Vector2(rectHonor.anchorMin.x + ((honor / honorMax) * xDiffHonor), rectHonor.anchorMax.y);
+            rectHonor.anchorMax = new Vector2(rectHonor.anchorMax.x,rectHonor.anchorMin.y + ((honor / honorMax) * yDiffHonor));
+            gobHonor.GetComponent<UnityEngine.UI.Image>().color = grd.Evaluate(honor / honorMax);
         }
 
         if (shake > 0)

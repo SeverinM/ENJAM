@@ -419,8 +419,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  scenetteListTemp:
-  - {fileID: 1033910384111500, guid: 682df102872710945b9e9e07ea9519e9, type: 2}
+  scenetteListTemp: []
   victoire: {fileID: 1518506589080430, guid: 3ec96580a2ae77740b8e0d53f16360ec, type: 2}
   defaite: {fileID: 1821521040789182, guid: 5c65a02b2b55d744186db80f9dbbcc3f, type: 2}
   currentScenette: {fileID: 0}

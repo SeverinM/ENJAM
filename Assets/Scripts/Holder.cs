@@ -55,6 +55,8 @@ public class Holder : MonoBehaviour {
     public List<AudioClip> soundsSuccess;
     public List<AudioClip> soundsFail;
 
+    float _debug_z;
+
     private void Start()
     {
         audio = GameObject.FindObjectOfType<AudioSource>();
@@ -143,19 +145,18 @@ public class Holder : MonoBehaviour {
 
         if (allScenette.Count > 0)
         {
-            Debug.Log(allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
             currentScenette.GetComponent<Animator>().SetFloat("speed", allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
         }
 
         currentScenette.Sucess += succ;
-        currentScenette.Fail += succ;
+        currentScenette.Fail += fail;
+        _debug_z = currentScenette.transform.position.z;
     }
 
 
     //Fin trnaisition
     public void activate()
     {
-        Debug.Log("joi");
         gobHonor.SetActive(true);
         Destroy(destroyingScenette.gameObject);
         Destroy(gobBandeau);
@@ -167,7 +168,7 @@ public class Holder : MonoBehaviour {
         gobHonor.SetActive(false);
         gobTimer.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
-        gobBandeau.GetComponent<Bandeaux>().init(false, false,currentScenette.textVictory, currentScenette.textSize);
+        gobBandeau.GetComponent<Bandeaux>().init(false, false,currentScenette.textVictory, currentScenette.textSizeVictory);
         StartCoroutine(nextSceneCoroutine());
     }
 
@@ -176,7 +177,7 @@ public class Holder : MonoBehaviour {
         gobHonor.SetActive(false);
         gobTimer.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
-        gobBandeau.GetComponent<Bandeaux>().init(false, true,currentScenette.textDefeat, currentScenette.textSize);
+        gobBandeau.GetComponent<Bandeaux>().init(false, true,currentScenette.textDefeat, currentScenette.textSizeDefeat);
         StartCoroutine(nextSceneCoroutine());
     }
 

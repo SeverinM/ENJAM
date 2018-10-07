@@ -28,7 +28,8 @@ public class BisousLeo : EditorWindow {
 
     string textVictory = "Yes !";
     string textDefeat = "Oh no !";
-    int textSize = 10;
+    int textSizeDefeat = 10;
+    int textSizeVictory = 10;
 
     List<SequenceInput> sequences = new List<SequenceInput>();
 
@@ -67,9 +68,11 @@ public class BisousLeo : EditorWindow {
         GUILayout.Label("Texte de defaite");
         textDefeat= EditorGUILayout.TextArea(textDefeat);
 
-        GUILayout.Label("Taille de police");
-        textSize = Mathf.Max(10, EditorGUILayout.IntField(textSize));
+        GUILayout.Label("Taille de police (Victoire)");
+        textSizeVictory = Mathf.Max(10, EditorGUILayout.IntField(textSizeVictory));
 
+        GUILayout.Label("Taille de police (Defaite)");
+        textSizeDefeat = Mathf.Max(10, EditorGUILayout.IntField(textSizeDefeat));
 
         GUILayout.Label("Delai du bandeau (temps en secondes)");
         delaiBandeau = Mathf.Max(0.001f, EditorGUILayout.FloatField("", delaiBandeau));
@@ -103,7 +106,7 @@ public class BisousLeo : EditorWindow {
             }
 
             KeyCode c = KeyCode.A;
-            for(int i = 97; i < 122; i++)
+            for(int i = 97; i <= 122; i++)
             {
                 if (((KeyCode)i).ToString() == code.ToUpper())
                 {
@@ -167,7 +170,8 @@ public class BisousLeo : EditorWindow {
             scn.successScenette = clpSuccessScenette;
             scn.animPourHero = anim;
             scn.backgroundSprite = sprt;
-            scn.textSize = textSize;
+            scn.textSizeDefeat = textSizeDefeat;
+            scn.textSizeVictory = textSizeVictory;
             scn.textVictory = textVictory;
             scn.textDefeat = textDefeat;
             scn.init();

@@ -23,6 +23,8 @@ public class Scenette : MonoBehaviour {
     float duration = 5;
     private Coroutine timerCoroutine;
     public bool finish = true;
+    float timeRemain;
+    int nb;
 
 
 
@@ -50,7 +52,17 @@ public class Scenette : MonoBehaviour {
     
     public void init()
     {
+        nb = 0;
         Holder hold = Holder.instance;
+        
+        foreach(SequenceInput seq in sequencesToDo)
+        {
+            foreach(DataInput dI in seq.dI)
+            {
+                nb++;
+            }
+        }
+        hold.setText(nb);
 
         if (failClic == null)
         {
@@ -107,11 +119,11 @@ public class Scenette : MonoBehaviour {
             {
                 if (Input.GetKeyDown(dI.kc) && !forbiddenKeys.Contains(dI.kc))
                 {
-                    Debug.Log(dI.tFX);
                     dI.tFX.getFinish();
                     StartCoroutine(deleteThisOneFromCurrentSequence(dI));
                     forbiddenKeys.Add(dI.kc);
                     Holder.getInstance().Play(successClic);
+                    Holder.instance.setText(--nb);
 
                     if (!inputPressed)
                     {
@@ -144,6 +156,7 @@ public class Scenette : MonoBehaviour {
             NextScenette();
             Sucess();
             Holder.instance.Play(successScenette);
+            Holder.instance.honor += (timeRemain / duration) * Holder.instance.honorMaxPerWin;
         }
         else
         {
@@ -176,7 +189,7 @@ public class Scenette : MonoBehaviour {
     IEnumerator timerOfDuration(float duration)
     {
         yield return new WaitForEndOfFrame();
-        float timeRemain = duration;
+        timeRemain = duration;
         Holder.instance.setTime(duration, true);
         while (timeRemain > 0)
         {
@@ -185,6 +198,7 @@ public class Scenette : MonoBehaviour {
             {
                 timeRemain -= 0.4f * wrongChar;
                 wrongChar = 0;
+                Holder.instance.honor -= Holder.instance.honorLosePerTouch;
                 Holder.instance.Play(failClic);
             }
             Holder.instance.setTime(timeRemain, false);

@@ -17,30 +17,39 @@ public class Holder : MonoBehaviour {
     public GameObject prefabTimer;
     GameObject gobTimer;
     float xDiff;
+    public GameObject txtRestant;
 
     public GameObject prefabInstanceToucheFX;
     GameObject[] poolKey = new GameObject[SIZEPOOLTOUCHE];
 
     public Camera mainCamera;
 
+
+    [Header("Honneur")]
     [SerializeField]
-    float honor;
+    public float honor;
     float honorMax = 100;
     public GameObject prefabHonor;
+    public float honorLosePerTouch;
+    public float honorMaxPerWin;
     GameObject gobHonor;
     RectTransform rectHonor;
     float xDiffHonor;
 
+
+    [Header("Gestion des scenettes")]
     public List<GameObject> scenetteListTemp = new List<GameObject>();
     Queue<GameObject> allScenette;
     Scenette currentScenette;
     Scenette destroyingScenette;
 
+    [Header("Bandeau")]
     public GameObject prefabBandeauWin;
     public GameObject prefabBandeauLose;
     GameObject gobBandeau;
     float speedBandeau = 1;
 
+    [Header("Son")]
     AudioSource audio;
     public AudioClip successClic;
     public AudioClip failClic;
@@ -86,6 +95,11 @@ public class Holder : MonoBehaviour {
         currentScenette.init();
     }
 
+    public void setText(int nb)
+    {
+        txtRestant.GetComponent<UnityEngine.UI.Text>().text = nb.ToString();
+    }
+
     public void setSpeed(float speed)
     {
         speedBandeau = speed;
@@ -101,6 +115,7 @@ public class Holder : MonoBehaviour {
         return speedBandeau;
     }
 
+    //Fin bandeau , debut transition
     public void nextScene()
     {
         GameObject gob;
@@ -132,9 +147,11 @@ public class Holder : MonoBehaviour {
         currentScenette.Fail += succ;
     }
 
+
+    //Fin trnaisition
     public void activate()
     {
-        gobHonor.SetActive(true);
+        Debug.Log("joi");
         gobHonor.SetActive(true);
         Destroy(destroyingScenette.gameObject);
         Destroy(gobBandeau);
@@ -220,15 +237,19 @@ public class Holder : MonoBehaviour {
         gobTimer.GetComponent<Animator>().SetTrigger("hit"); 
     }
 
-    public void setHonor(float newHonor)
-    {
-        honor = newHonor;
-    }
 
     IEnumerator nextSceneCoroutine()
     {
         yield return new WaitForSeconds(currentScenette.timeBeforeNext);
         nextScene();
         yield return 0;
+    }
+
+    public static Vector3 worldPointToRatio(Vector3 point)
+    {
+        Vector3 output;
+        point = Camera.main.WorldToScreenPoint(point);
+        output = new Vector3(point.x / Screen.width, point.y / Screen.height, 0);
+        return output;
     }
 }

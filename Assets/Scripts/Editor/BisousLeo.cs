@@ -33,6 +33,8 @@ public class BisousLeo : EditorWindow {
     AudioClip clpFail;
     AudioClip clpSuccessScenette;
 
+    GameObject evaluate;
+
 
     [MenuItem("Window/LeoEditor")]
     public static void ShowWindow()
@@ -135,6 +137,12 @@ public class BisousLeo : EditorWindow {
         if (GUILayout.Button("Supprimer la liste"))
         {
             holder.GetComponent<Holder>().scenetteListTemp.Clear();
+        }
+
+        evaluate = (GameObject)EditorGUILayout.ObjectField("Quel objet ?", evaluate, typeof(GameObject), true);
+        if (evaluate != null)
+        {
+            EditorGUILayout.LabelField(Holder.worldPointToRatio(evaluate.transform.position).ToString());
         }
 
     }

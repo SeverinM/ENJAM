@@ -33,7 +33,6 @@ public class Bandeaux : MonoBehaviour {
     public void init(bool isWE , bool isDefeat, string txt, int sizeTxt = 15)
     {
         GetComponent<SpriteRenderer>().color = isDefeat ? defeat : victory;
-        Debug.Log(transform.GetChild(0).name);
         transform.GetChild(1).GetChild(0).GetComponent<TextMesh>().text = txt;
         transform.GetChild(1).GetChild(0).GetComponent<TextMesh>().fontSize = sizeTxt;
         transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = isWE ? WE : week;

@@ -55,13 +55,12 @@ public class Holder : MonoBehaviour {
     public List<AudioClip> soundsSuccess;
     public List<AudioClip> soundsFail;
 
-    float _debug_z;
-
     private void Start()
     {
         audio = GameObject.FindObjectOfType<AudioSource>();
         allScenette = new Queue<GameObject>(scenetteListTemp);
-        //DEBUG, NEED TO BE ERASE AFTER
+
+
         currentScenette = GameObject.Find("ScenetteTest").GetComponent<Scenette>();
         currentScenette.Fail += fail;
         currentScenette.Sucess += succ;
@@ -119,38 +118,31 @@ public class Holder : MonoBehaviour {
     //Fin bandeau , debut transition
     public void nextScene()
     {
-        GameObject gob;
         GameObject obj = null;
-        /*if (allScenette.Count == 0)
-        {
-            obj = allScenette.Dequeue();
-            obj.SetActive(true);
-            currentScenette = Instantiate(obj).GetComponent<Scenette>();
-            return;
-        }*/
         if (currentScenette != null)
         {
             currentScenette.Sucess -= succ;
             currentScenette.Fail -= fail;
             destroyingScenette = currentScenette;
-            //currentScenette.GetComponent<Animator>().SetFloat("Speed", currentScenette.mutliplerSpeedEnter);
             currentScenette.Sucess += succ;
             currentScenette.Fail += succ;
         }
-        obj = allScenette.Dequeue();
-        obj.SetActive(true);
-        currentScenette = Instantiate(obj).GetComponent<Scenette>();
-        //currentScenette.init(); // not made by him
-        currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
+
+        if (allScenette.Count > 0)
+        {
+            obj = allScenette.Dequeue();
+            obj.SetActive(true);
+            currentScenette = Instantiate(obj).GetComponent<Scenette>();
+            currentScenette.Sucess += succ;
+            currentScenette.Fail += fail;
+            currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
+        }
+       
 
         if (allScenette.Count > 0)
         {
             currentScenette.GetComponent<Animator>().SetFloat("speed", allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
         }
-
-        currentScenette.Sucess += succ;
-        currentScenette.Fail += fail;
-        _debug_z = currentScenette.transform.position.z;
     }
 
 

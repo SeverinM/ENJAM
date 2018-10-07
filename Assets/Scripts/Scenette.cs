@@ -32,6 +32,8 @@ public class Scenette : MonoBehaviour {
     float timeRemain;
     int nb;
 
+    public bool isWE = false;
+
 
 
     [Header("Input data and sequence part")]
@@ -63,7 +65,6 @@ public class Scenette : MonoBehaviour {
 
     public void init()
     {
-        //print("init by scenette, parfum pour bit");
         nb = 0;
         Holder hold = Holder.instance;
         
@@ -90,8 +91,6 @@ public class Scenette : MonoBehaviour {
         {
             successScenette = hold.soundsSuccess[Random.Range(0, hold.soundsSuccess.Count - 1)];
         }
-
-        Debug.Log(successClic);
 
         this.transform.position -= Vector3.forward;
         if(!startScene)
@@ -231,7 +230,7 @@ public class Scenette : MonoBehaviour {
                 Holder.instance.Play(failClic);
 
                 //Ca fait bugger
-                //Holder.instance.shake = 1;
+                Holder.instance.shake += 1;
             }
             Holder.instance.setTime(timeRemain, false);
             yield return new WaitForSeconds(0.1f);

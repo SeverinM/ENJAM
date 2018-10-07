@@ -227,6 +227,7 @@ MonoBehaviour:
   animPourHero: 7
   duration: 5
   finish: 0
+  isWE: 0
   sequencesToDo:
   - dI:
     - kc: 116
@@ -244,7 +245,7 @@ MonoBehaviour:
     - kc: 114
       tFX: {fileID: 0}
       wPos: {x: -0.45, y: -4}
-  timeBeforeNext: 3
+  timeBeforeNext: 2
   speedBandeauMultipler: 2
   mutliplerSpeedEnter: 1
   inputPressed: 0
@@ -392,8 +393,8 @@ MonoBehaviour:
   gobHonor2: {fileID: 1294316253}
   grd:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 1, g: 0, b: 0.035849094, a: 1}
+    key1: {r: 0, g: 0.15980196, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -419,13 +420,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  scenetteListTemp:
-  - {fileID: 1794583215388840, guid: 4a892d60bab5d6b4484f25dbe912f519, type: 2}
-  - {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-  - {fileID: 1709095607084942, guid: 4f9f33d850aecbc4f87780b75a3a38d2, type: 2}
-  - {fileID: 1624982078352482, guid: ba4d45a3cf27c9b48adff17d4d5fb882, type: 2}
-  - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
-  - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
+  scenetteListTemp: []
   victoire: {fileID: 1518506589080430, guid: 3ec96580a2ae77740b8e0d53f16360ec, type: 2}
   defaite: {fileID: 1821521040789182, guid: 5c65a02b2b55d744186db80f9dbbcc3f, type: 2}
   moustiqueGO: {fileID: 1858693803160826, guid: 2e710858718c8ba42a6a5862c4f299ac,
@@ -440,6 +435,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec26877cfb9d6d64d997058907895a2f, type: 3}
   soundsFail:
   - {fileID: 8300000, guid: 501e637c7ec3a114c9a11c52abe5ac95, type: 3}
+  next:
+  - {fileID: 8300000, guid: b77156ae7ad19ed47bfaa8a6b8b26f56, type: 3}
+  - {fileID: 8300000, guid: b7e848a74885e2d499c055ab64aaf29b, type: 3}
+  failSound: {fileID: 8300000, guid: de97a60a4942e934e88d568d11465a6c, type: 3}
   shake: 0
   decreaseFactor: 5
 --- !u!1 &554149312
@@ -1184,21 +1183,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea0d5a2e2519c4458117895cd20dfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nuitWE:
-  - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
-  jourWE:
-  - {fileID: 1618206438773834, guid: 1df12590c6b862f4abb33549508e13f0, type: 2}
   nuitSemaine:
   - {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
   - {fileID: 1709095607084942, guid: 4f9f33d850aecbc4f87780b75a3a38d2, type: 2}
+  - {fileID: 1380803265886858, guid: f270c4f664e4e1b40bdc044a7a2c0ef2, type: 2}
   jourSemaine:
   - {fileID: 1515916613158210, guid: ca509c860a54a1c4cb35c0ee671882d5, type: 2}
   - {fileID: 1624982078352482, guid: ba4d45a3cf27c9b48adff17d4d5fb882, type: 2}
   - {fileID: 1972611973388054, guid: e955df1c0772d5947a6d07084750e23a, type: 2}
   - {fileID: 1325625887416034, guid: acbe680c290704a478c125689d0adfa6, type: 2}
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
+  - {fileID: 1380803265886858, guid: f8a1fa2546f6dd542b468dea01beeb0d, type: 2}
+  nuitWE:
+  - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
+  jourWE:
+  - {fileID: 1618206438773834, guid: 1df12590c6b862f4abb33549508e13f0, type: 2}
   - {fileID: 1794583215388840, guid: 4a892d60bab5d6b4484f25dbe912f519, type: 2}
-  nombre: 10
+  nombre: 2
 --- !u!4 &1463892059
 Transform:
   m_ObjectHideFlags: 0
@@ -1423,6 +1424,7 @@ MonoBehaviour:
   animPourHero: 0
   duration: 5
   finish: 0
+  isWE: 0
   sequencesToDo:
   - dI:
     - kc: 100

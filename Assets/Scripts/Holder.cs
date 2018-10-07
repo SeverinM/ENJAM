@@ -55,17 +55,20 @@ public class Holder : MonoBehaviour {
     GameObject gobBandeau;
     float speedBandeau = 1;
 
-    [Header("Son")]
     AudioSource audio;
+    [Header("Son")]
     public AudioClip successClic;
     public AudioClip failClic;
     public List<AudioClip> soundsSuccess;
     public List<AudioClip> soundsFail;
+    public List<AudioClip> next;
+    public AudioClip failSound;
 
     [Header("Ecran secoué")]
     public float shake = 1;
     public float decreaseFactor = 1;
 
+    bool isWE;
 
     private void Start()
     {
@@ -121,7 +124,7 @@ public class Holder : MonoBehaviour {
 
     public void Play(AudioClip clp)
     {
-        audio.PlayOneShot(clp);
+        audio.PlayOneShot(clp, 0.5f);
     }
 
     public float getSpeed()
@@ -132,6 +135,7 @@ public class Holder : MonoBehaviour {
     //Fin bandeau , debut transition
     public void nextScene()
     {
+        audio.PlayOneShot(next[Random.Range(0, next.Count)], 0.5f);
         GameObject obj = null;
 
         if(honor < 0)
@@ -172,6 +176,7 @@ public class Holder : MonoBehaviour {
             currentScenette.GetComponent<Animator>().SetFloat("speed", allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
         }
 
+        isWE = currentScenette.isWE;
         currentScenette.init();
     }
 
@@ -179,13 +184,11 @@ public class Holder : MonoBehaviour {
     //Fin trnaisition
     public void activate()
     {
-        Debug.Log("did I ever get called ?");
         gobHonor.SetActive(true);
         gobHonor2.SetActive(true);
         if (destroyingScenette != null)
             Destroy(destroyingScenette.gameObject);
         Destroy(gobBandeau);
-        //currentScenette.enabled = true;
     }
 
     public void succ()
@@ -194,7 +197,7 @@ public class Holder : MonoBehaviour {
         gobTimer.SetActive(false);
         gobHonor2.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
-        gobBandeau.GetComponent<Bandeaux>().init(false, false,currentScenette.textVictory, currentScenette.textSizeVictory);
+        gobBandeau.GetComponent<Bandeaux>().init(isWE, false,currentScenette.textVictory, currentScenette.textSizeVictory);
         StartCoroutine(nextSceneCoroutine());
     }
 
@@ -204,8 +207,9 @@ public class Holder : MonoBehaviour {
         gobHonor2.SetActive(false);
         gobTimer.SetActive(false);
         gobBandeau = Instantiate(prefabBandeau);
-        gobBandeau.GetComponent<Bandeaux>().init(false, true,currentScenette.textDefeat, currentScenette.textSizeDefeat);
+        gobBandeau.GetComponent<Bandeaux>().init(isWE, true,currentScenette.textDefeat, currentScenette.textSizeDefeat);
         StartCoroutine(nextSceneCoroutine());
+        audio.PlayOneShot(failSound, 0.5f);
     }
 
     private void Update()
@@ -228,7 +232,8 @@ public class Holder : MonoBehaviour {
 
         if (shake > 0)
         {
-            Camera.main.transform.localPosition = Random.insideUnitSphere * shake;
+            Vector2 rand = Random.insideUnitCircle * shake;
+            Camera.main.transform.localPosition = new Vector3(rand.x, rand.y, -10);
             shake -= Time.deltaTime * decreaseFactor;
         }
         else

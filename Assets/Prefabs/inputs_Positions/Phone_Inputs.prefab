@@ -377,6 +377,7 @@ MonoBehaviour:
   animPourHero: 0
   duration: 5
   finish: 0
+  isWE: 0
   sequencesToDo:
   - dI:
     - kc: 52
@@ -404,9 +405,9 @@ MonoBehaviour:
     - kc: 116
       tFX: {fileID: 0}
       wPos: {x: 7.4, y: -2.5}
-  timeBeforeNext: 1
-  speedBandeauMultipler: 1
-  mutliplerSpeedEnter: 1
+  timeBeforeNext: 1.5
+  speedBandeauMultipler: 1.2
+  mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114727311552686578}
   decor: {fileID: 212203112834530098}

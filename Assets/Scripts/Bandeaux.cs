@@ -42,6 +42,7 @@ public class Bandeaux : MonoBehaviour {
         GetComponent<SpriteRenderer>().color = isDefeat ? defeat : victory;
         transitionText.text = txt;
         transitionText.fontSize = sizeTxt;
+        Debug.Log(isWE);
         toChange.sprite = isWE ? WE : week;
     }
 	

@@ -367,42 +367,43 @@ MonoBehaviour:
   animPourHero: 6
   duration: 5
   finish: 0
+  isWE: 0
   sequencesToDo:
   - dI:
     - kc: 113
       tFX: {fileID: 0}
-      wPos: {x: 4.9, y: -2}
+      wPos: {x: 5, y: 2}
     - kc: 119
       tFX: {fileID: 0}
-      wPos: {x: 6.1, y: -2}
+      wPos: {x: 7, y: 2}
     - kc: 111
       tFX: {fileID: 0}
-      wPos: {x: 5.9, y: -5.1}
+      wPos: {x: 5, y: -1.1}
     - kc: 112
       tFX: {fileID: 0}
-      wPos: {x: 7.1, y: -4.8}
+      wPos: {x: 7, y: -1.1}
   - dI:
     - kc: 107
-      tFX: {fileID: 0}
-      wPos: {x: -7.5, y: 2.4}
-    - kc: 105
-      tFX: {fileID: 0}
-      wPos: {x: -6.5, y: 2.4}
-    - kc: 114
       tFX: {fileID: 0}
       wPos: {x: -5.5, y: 2.4}
     - kc: 105
       tFX: {fileID: 0}
       wPos: {x: -4.5, y: 2.4}
+    - kc: 114
+      tFX: {fileID: 0}
+      wPos: {x: -3.5, y: 2.4}
+    - kc: 105
+      tFX: {fileID: 0}
+      wPos: {x: -2.5, y: 2.4}
     - kc: 107
       tFX: {fileID: 0}
-      wPos: {x: -7.5, y: 1}
+      wPos: {x: -5.5, y: 1}
     - kc: 111
       tFX: {fileID: 0}
-      wPos: {x: -6.5, y: 1}
+      wPos: {x: -4.5, y: 1}
     - kc: 117
       tFX: {fileID: 0}
-      wPos: {x: -5.5, y: 1}
+      wPos: {x: -3.5, y: 1}
   timeBeforeNext: 1
   speedBandeauMultipler: 1
   mutliplerSpeedEnter: 1

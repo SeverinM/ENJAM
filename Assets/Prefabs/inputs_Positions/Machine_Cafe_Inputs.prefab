@@ -379,26 +379,27 @@ MonoBehaviour:
   animPourHero: 0
   duration: 5
   finish: 0
+  isWE: 0
   sequencesToDo:
   - dI:
-    - kc: 99
-      tFX: {fileID: 0}
-      wPos: {x: 7, y: 1}
     - kc: 111
       tFX: {fileID: 0}
-      wPos: {x: 7, y: -0.5}
+      wPos: {x: 7, y: 1}
     - kc: 102
+      tFX: {fileID: 0}
+      wPos: {x: 7, y: -0.5}
+    - kc: 101
       tFX: {fileID: 0}
       wPos: {x: 7, y: -2}
-    - kc: 102
+    - kc: 99
       tFX: {fileID: 0}
       wPos: {x: 6, y: 0.5}
-    - kc: 101
+    - kc: 102
       tFX: {fileID: 0}
       wPos: {x: 6.2, y: -1}
     - kc: 101
       tFX: {fileID: 0}
-      wPos: {x: 6.5, y: -4}
+      wPos: {x: 6.5, y: -3.5}
   timeBeforeNext: 1
   speedBandeauMultipler: 1
   mutliplerSpeedEnter: 1

@@ -13,18 +13,14 @@ public class Holder : MonoBehaviour {
     private float maxTime;
     private float actualTime;
 
-    RectTransform rect;
     public GameObject prefabTimer;
     GameObject gobTimer;
-    float xDiff;
     public GameObject txtRestant;
 
     public GameObject prefabInstanceToucheFX;
     GameObject[] poolKey = new GameObject[SIZEPOOLTOUCHE];
 
     public Camera mainCamera;
-
-
 
     [Header("Honneur")]
     [SerializeField]
@@ -84,10 +80,8 @@ public class Holder : MonoBehaviour {
         gobTimer = Instantiate(prefabTimer, this.transform) as GameObject;
         gobHonor = Instantiate(prefabHonor, transform);
 
-        rect = gobTimer.GetComponent<RectTransform>();
         rectHonor = gobHonor.transform.GetChild(0).GetComponent<RectTransform>();
 
-        xDiff = rect.anchorMax.x - rect.anchorMin.x;
         yDiffHonor = rectHonor.anchorMax.y - rectHonor.anchorMin.y;
 
         if (instance != null)
@@ -214,7 +208,7 @@ public class Holder : MonoBehaviour {
         if (gobTimer.activeSelf)
         {
             actualTime -= (Time.deltaTime * Vitesse);
-            rect.anchorMax = new Vector2(rect.anchorMin.x + ((actualTime / maxTime) * xDiff), rect.anchorMax.y);
+            gobTimer.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().fillAmount = (actualTime / maxTime);
             if (actualTime <= 0)
             {
                 gobTimer.SetActive(false);

@@ -28,7 +28,7 @@ public class Perso : MonoBehaviour {
     public void startEnergitize()
     {
         animatorHero.SetTrigger("go");
-        if (!Holder.instance.currentScenette.falseScene)
+        if (!Holder.instance.currentScenette.falseScene && !Holder.instance.currentScenette.isWE)
             Holder.instance.minimum = Holder.instance.shake = 0.1f;
     }
 

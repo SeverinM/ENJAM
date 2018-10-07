@@ -397,28 +397,6 @@ MonoBehaviour:
     - kc: 104
       tFX: {fileID: 0}
       wPos: {x: 5, y: -3.2}
-  - dI:
-    - kc: 115
-      tFX: {fileID: 0}
-      wPos: {x: 1, y: 1}
-    - kc: 112
-      tFX: {fileID: 0}
-      wPos: {x: 1, y: 1}
-    - kc: 108
-      tFX: {fileID: 0}
-      wPos: {x: 1, y: 1}
-    - kc: 111
-      tFX: {fileID: 0}
-      wPos: {x: 1, y: 1}
-    - kc: 114
-      tFX: {fileID: 0}
-      wPos: {x: 1, y: 1}
-    - kc: 99
-      tFX: {fileID: 0}
-      wPos: {x: 1, y: 1}
-    - kc: 104
-      tFX: {fileID: 0}
-      wPos: {x: 1, y: 1}
   timeBeforeNext: 1
   speedBandeauMultipler: 1
   mutliplerSpeedEnter: 1

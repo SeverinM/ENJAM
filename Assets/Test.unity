@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &280980380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +401,57 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec26877cfb9d6d64d997058907895a2f, type: 3}
   soundsFail:
   - {fileID: 8300000, guid: 501e637c7ec3a114c9a11c52abe5ac95, type: 3}
+--- !u!1001 &471030762
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536968090328350, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 95414534763211918, guid: 2b791574819a56a4ebde324a126feef2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+      propertyPath: m_Name
+      value: ScenetteTest
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &554149312
 GameObject:
   m_ObjectHideFlags: 0

@@ -373,7 +373,7 @@ MonoBehaviour:
   stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 6a2b5d69dc52d364e9289d75208509ff, type: 3}
   textDefeat: "I didn\u2019t deserve to sleep anyway"
-  textVictory: Finally, some good fucking sleep
+  textVictory: Finally, some \j good fucking sleep
   textSizeVictory: 15
   textSizeDefeat: 15
   animPourHero: 2
@@ -417,7 +417,7 @@ MonoBehaviour:
       tFX: {fileID: 0}
       wPos: {x: 0.5, y: -0.6}
   timeBeforeNext: 1.5
-  speedBandeauMultipler: 1.2
+  speedBandeauMultipler: 2
   mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114296503706825000}

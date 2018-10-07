@@ -372,10 +372,10 @@ MonoBehaviour:
   falseScene: 0
   stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 14943c39107fa924ab0c255df2f7a361, type: 3}
-  textDefeat: "I\u2019m so weak , pigeons should feed me"
+  textDefeat: "I\u2019m so weak , \\j pigeons should feed me"
   textVictory: I finally have some friends
   textSizeVictory: 15
-  textSizeDefeat: 10
+  textSizeDefeat: 15
   animPourHero: 3
   duration: 5
   finish: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
       tFX: {fileID: 0}
       wPos: {x: 5, y: -1.5}
   timeBeforeNext: 1.5
-  speedBandeauMultipler: 1.2
+  speedBandeauMultipler: 2
   mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114339610903597878}

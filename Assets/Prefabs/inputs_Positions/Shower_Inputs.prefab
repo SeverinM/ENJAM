@@ -371,12 +371,12 @@ MonoBehaviour:
   startScene: 0
   falseScene: 0
   stickmou: 0
-  backgroundSprite: {fileID: 21300000, guid: a580c42d25bd9d44089ad52614196bfe, type: 3}
-  textDefeat: "This shower won\u2019t be enough to wash away my shame"
+  backgroundSprite: {fileID: 21300000, guid: 2f824e345a2e094408f455eee2546463, type: 3}
+  textDefeat: "This shower won\u2019t be enough to \\j wash away my shame"
   textVictory: A clean body for a clear spirit
   textSizeVictory: 15
   textSizeDefeat: 15
-  animPourHero: 0
+  animPourHero: 5
   duration: 5
   finish: 0
   isWE: 0
@@ -410,9 +410,9 @@ MonoBehaviour:
     - kc: 116
       tFX: {fileID: 0}
       wPos: {x: -4, y: -4}
-  timeBeforeNext: 1
-  speedBandeauMultipler: 1
-  mutliplerSpeedEnter: 1
+  timeBeforeNext: 1.5
+  speedBandeauMultipler: 2
+  mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114201328835405846}
   decor: {fileID: 212174446168696672}

@@ -372,9 +372,9 @@ MonoBehaviour:
   falseScene: 0
   stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 6e34fd26340a291409725c34d225fd1a, type: 3}
-  textDefeat: No one wants to receive a call from a worthless man
-  textVictory: I will call everyone I know to let them know of fast I am
-  textSizeVictory: 10
+  textDefeat: No one wants to receive a call \j from a worthless man
+  textVictory: I will call everyone I know to \j let them know of fast I am
+  textSizeVictory: 15
   textSizeDefeat: 10
   animPourHero: 0
   duration: 7
@@ -407,8 +407,8 @@ MonoBehaviour:
     - kc: 116
       tFX: {fileID: 0}
       wPos: {x: 7.4, y: -2.5}
-  timeBeforeNext: 2
-  speedBandeauMultipler: 1.2
+  timeBeforeNext: 1.5
+  speedBandeauMultipler: 2
   mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114727311552686578}

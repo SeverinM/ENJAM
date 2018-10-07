@@ -357,10 +357,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene: 0
+  falseScene: 0
+  stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 66063e5c927a5fe498550cacef03a85d, type: 3}
   textDefeat: This next week will be the end of my honor
   textVictory: I have never felt stronger !
-  textSizeVictory: 10
+  textSizeVictory: 15
   textSizeDefeat: 10
   animPourHero: 5
   duration: 20

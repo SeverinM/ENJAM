@@ -419,9 +419,11 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  scenetteListTemp: []
+  scenetteListTemp:
+  - {fileID: 1972611973388054, guid: e955df1c0772d5947a6d07084750e23a, type: 2}
   victoire: {fileID: 1518506589080430, guid: 3ec96580a2ae77740b8e0d53f16360ec, type: 2}
   defaite: {fileID: 1821521040789182, guid: 5c65a02b2b55d744186db80f9dbbcc3f, type: 2}
+  currentScenette: {fileID: 0}
   moustiqueGO: {fileID: 1858693803160826, guid: 2e710858718c8ba42a6a5862c4f299ac,
     type: 2}
   prefabBandeau: {fileID: 1033993685558718, guid: 966e7aee3ab33dc49bf53b956ce0e405,
@@ -1115,6 +1117,7 @@ MonoBehaviour:
   - {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
   - {fileID: 1709095607084942, guid: 4f9f33d850aecbc4f87780b75a3a38d2, type: 2}
   - {fileID: 1380803265886858, guid: f270c4f664e4e1b40bdc044a7a2c0ef2, type: 2}
+  - {fileID: 1512280894373546, guid: 688674b66a82e1c49a1ed72a5edf97ab, type: 2}
   jourSemaine:
   - {fileID: 1515916613158210, guid: ca509c860a54a1c4cb35c0ee671882d5, type: 2}
   - {fileID: 1624982078352482, guid: ba4d45a3cf27c9b48adff17d4d5fb882, type: 2}
@@ -1122,6 +1125,7 @@ MonoBehaviour:
   - {fileID: 1325625887416034, guid: acbe680c290704a478c125689d0adfa6, type: 2}
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
   - {fileID: 1380803265886858, guid: f8a1fa2546f6dd542b468dea01beeb0d, type: 2}
+  - {fileID: 1440048360891270, guid: ac5207f56f6e7a143af644ea22e54b52, type: 2}
   nuitWE:
   - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
   jourWE:

@@ -40,9 +40,9 @@ public class Bandeaux : MonoBehaviour {
     public void init(bool isWE , bool isDefeat, string txt, int sizeTxt = 15)
     {
         GetComponent<SpriteRenderer>().color = isDefeat ? defeat : victory;
+        txt = txt.Replace("\\j", "\n");
         transitionText.text = txt;
         transitionText.fontSize = sizeTxt;
-        Debug.Log(isWE);
         toChange.sprite = isWE ? WE : week;
     }
 	

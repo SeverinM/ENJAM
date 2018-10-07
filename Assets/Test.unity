@@ -419,8 +419,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   scenetteListTemp:
-  - {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
-  - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
+  - {fileID: 1794583215388840, guid: 4a892d60bab5d6b4484f25dbe912f519, type: 2}
+  - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
   - {fileID: 1709095607084942, guid: 4f9f33d850aecbc4f87780b75a3a38d2, type: 2}
   - {fileID: 1624982078352482, guid: ba4d45a3cf27c9b48adff17d4d5fb882, type: 2}
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}

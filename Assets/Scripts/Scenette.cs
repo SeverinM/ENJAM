@@ -16,7 +16,7 @@ public class Scenette : MonoBehaviour {
     public bool startScene = false;
     public bool falseScene = false;
     public bool stickmou = false;
-    //Visual
+    //visual
     public Sprite backgroundSprite;
     public string textDefeat = "No !";
     public string textVictory = "Yes !";
@@ -178,7 +178,8 @@ public class Scenette : MonoBehaviour {
             NextScenette();
             Sucess();
             Holder.instance.Play(successScenette);
-            Holder.instance.honor += (timeRemain / duration) * Holder.instance.honorMaxPerWin;
+            if (!isWE)
+                Holder.instance.honor += (timeRemain / duration) * Holder.instance.honorMaxPerWin;
         }
         else
         {

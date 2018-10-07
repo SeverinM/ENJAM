@@ -164,12 +164,6 @@ public class Holder : MonoBehaviour {
             setSpeed(currentScenette.speedBandeauMultipler);
         }
        
-
-        if (allScenette.Count > 0)
-        {
-            currentScenette.GetComponent<Animator>().SetFloat("speed", allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
-        }
-
         isWE = currentScenette.isWE;
         gobTimer.SetActive(!currentScenette.falseScene);
         currentScenette.init();

@@ -44,8 +44,7 @@ public class Holder : MonoBehaviour {
     Scenette destroyingScenette;
 
     [Header("Bandeau")]
-    public GameObject prefabBandeauWin;
-    public GameObject prefabBandeauLose;
+    public GameObject prefabBandeau;
     GameObject gobBandeau;
     float speedBandeau = 1;
 
@@ -120,17 +119,15 @@ public class Holder : MonoBehaviour {
     {
         GameObject gob;
         GameObject obj = null;
-        if (allScenette.Count == 0)
+        /*if (allScenette.Count == 0)
         {
             obj = allScenette.Dequeue();
             obj.SetActive(true);
             currentScenette = Instantiate(obj).GetComponent<Scenette>();
             return;
-        }
+        }*/
         if (currentScenette != null)
         {
-            if (allScenette.Count == 0)
-                setSpeed(allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
             currentScenette.Sucess -= succ;
             currentScenette.Fail -= fail;
             destroyingScenette = currentScenette;
@@ -141,7 +138,14 @@ public class Holder : MonoBehaviour {
         obj = allScenette.Dequeue();
         obj.SetActive(true);
         currentScenette = Instantiate(obj).GetComponent<Scenette>();
+        currentScenette.init();
         //currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
+
+        if (allScenette.Count > 0)
+        {
+            Debug.Log(allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
+            currentScenette.GetComponent<Animator>().SetFloat("speed", allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
+        }
 
         currentScenette.Sucess += succ;
         currentScenette.Fail += succ;
@@ -162,7 +166,8 @@ public class Holder : MonoBehaviour {
     {
         gobHonor.SetActive(false);
         gobTimer.SetActive(false);
-        gobBandeau = Instantiate(prefabBandeauWin);
+        gobBandeau = Instantiate(prefabBandeau);
+        gobBandeau.GetComponent<Bandeaux>().init(false, false,currentScenette.textVictory, currentScenette.textSize);
         StartCoroutine(nextSceneCoroutine());
     }
 
@@ -170,7 +175,8 @@ public class Holder : MonoBehaviour {
     {
         gobHonor.SetActive(false);
         gobTimer.SetActive(false);
-        gobBandeau = Instantiate(prefabBandeauLose);
+        gobBandeau = Instantiate(prefabBandeau);
+        gobBandeau.GetComponent<Bandeaux>().init(false, true,currentScenette.textDefeat, currentScenette.textSize);
         StartCoroutine(nextSceneCoroutine());
     }
 

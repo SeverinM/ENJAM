@@ -13,7 +13,6 @@ public class BisousLeo : EditorWindow {
     float vitesseInsertion = 1;
 
     GameObject model;
-    Holder holder;
 
     DataInput dI;
 
@@ -26,6 +25,10 @@ public class BisousLeo : EditorWindow {
 
     int sequence = 0;
     string nameObject = "Leo";
+
+    string textVictory = "Yes !";
+    string textDefeat = "Oh no !";
+    int textSize = 10;
 
     List<SequenceInput> sequences = new List<SequenceInput>();
 
@@ -58,6 +61,15 @@ public class BisousLeo : EditorWindow {
         GUILayout.Label("Vitesse du bandeau (multiplicateur)");
         vitesseBandeauMultipler = Mathf.Max(0.001f,EditorGUILayout.FloatField("", vitesseBandeauMultipler));
 
+        GUILayout.Label("Texte de victoire");
+        textVictory = EditorGUILayout.TextArea(textVictory);
+
+        GUILayout.Label("Texte de defaite");
+        textDefeat= EditorGUILayout.TextArea(textDefeat);
+
+        GUILayout.Label("Taille de police");
+        textSize = Mathf.Max(10, EditorGUILayout.IntField(textSize));
+
 
         GUILayout.Label("Delai du bandeau (temps en secondes)");
         delaiBandeau = Mathf.Max(0.001f, EditorGUILayout.FloatField("", delaiBandeau));
@@ -73,7 +85,6 @@ public class BisousLeo : EditorWindow {
 
         GUILayout.Label("IMPORTANT SINON CA MARCHE PAS ");
         model = (GameObject)EditorGUILayout.ObjectField("Modele de base", model, typeof(GameObject), true);
-        holder = (Holder)EditorGUILayout.ObjectField("Quel holder ?", holder, typeof(Holder), true);
 
         GUILayout.Label("Code ? (une seule lettre et en majuscule)");
         code = GUILayout.TextField(code);
@@ -83,9 +94,6 @@ public class BisousLeo : EditorWindow {
 
         GUILayout.Label("Position y");
         y = EditorGUILayout.FloatField(y);
-
-        x = Mathf.Clamp(x, 0, 1);
-        y = Mathf.Clamp(y, 0, 1);
 
         if (GUILayout.Button("Ajouter la frappe dans la liste actuelle"))
         {
@@ -144,7 +152,7 @@ public class BisousLeo : EditorWindow {
         clpSuccessScenette = (AudioClip)EditorGUILayout.ObjectField("Fin scenette positive ", clpSuccessScenette, typeof(AudioClip), true);
 
 
-        if (GUILayout.Button("Ajouter a la liste"))
+        if (GUILayout.Button("Créer"))
         {
             GameObject instance;
             instance = Instantiate(model);
@@ -159,15 +167,12 @@ public class BisousLeo : EditorWindow {
             scn.successScenette = clpSuccessScenette;
             scn.animPourHero = anim;
             scn.backgroundSprite = sprt;
+            scn.textSize = textSize;
+            scn.textVictory = textVictory;
+            scn.textDefeat = textDefeat;
+            scn.init();
 
-            holder.scenetteListTemp.Add(instance);
             sequences = new List<SequenceInput>();
         }
-
-        if (GUILayout.Button("Supprimer la liste"))
-        {
-            holder.GetComponent<Holder>().scenetteListTemp.Clear();
-        }
-
     }
 }

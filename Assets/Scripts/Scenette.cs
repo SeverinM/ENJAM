@@ -16,6 +16,9 @@ public class Scenette : MonoBehaviour {
     public bool startScene = false;
     //visual
     public Sprite backgroundSprite;
+    public string textDefeat = "No !";
+    public string textVictory = "Yes !";
+    public int textSize = 10;
     public animHero animPourHero = animHero.attaqueAuDoigt;
     [SerializeField]
     float duration = 5;

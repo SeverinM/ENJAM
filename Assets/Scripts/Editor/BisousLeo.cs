@@ -8,9 +8,9 @@ using System.Text;
 
 public class BisousLeo : EditorWindow {
 
-    float vitesseBandeauMultipler = 0;
-    float delaiBandeau = 0;
-    float vitesseInsertion = 0;
+    float vitesseBandeauMultipler = 1;
+    float delaiBandeau = 1;
+    float vitesseInsertion = 1;
 
     GameObject model;
     Holder holder;
@@ -25,13 +25,17 @@ public class BisousLeo : EditorWindow {
     int listY = 0;
 
     int sequence = 0;
-    string display;
+    string nameObject = "Leo";
 
     List<SequenceInput> sequences = new List<SequenceInput>();
 
     AudioClip clpSuccess;
     AudioClip clpFail;
     AudioClip clpSuccessScenette;
+
+    animHero anim;
+
+    Sprite sprt;
 
     GameObject evaluate;
 
@@ -44,30 +48,40 @@ public class BisousLeo : EditorWindow {
 
     private void OnGUI()
     {
+        GUILayout.Label("Nom de l'objet");
+        nameObject = EditorGUILayout.TextArea(nameObject);
+        if (nameObject == "")
+        {
+            nameObject = "J'ai laissé un nom vide , shame on me";
+        }
 
         GUILayout.Label("Vitesse du bandeau (multiplicateur)");
-        vitesseBandeauMultipler = EditorGUILayout.FloatField("", vitesseBandeauMultipler);
+        vitesseBandeauMultipler = Mathf.Max(0.001f,EditorGUILayout.FloatField("", vitesseBandeauMultipler));
 
 
         GUILayout.Label("Delai du bandeau (temps en secondes)");
-        delaiBandeau = EditorGUILayout.FloatField("", delaiBandeau);
+        delaiBandeau = Mathf.Max(0.001f, EditorGUILayout.FloatField("", delaiBandeau));
 
 
         GUILayout.Label("Vitesse de transition (multiplicateur) ");
-        vitesseInsertion = EditorGUILayout.FloatField("", vitesseInsertion);
+        vitesseInsertion = Mathf.Max(0.001f, EditorGUILayout.FloatField("", vitesseInsertion));
 
+        GUILayout.Label("Quel animation ?");
+        anim = (animHero)EditorGUILayout.EnumPopup(anim);
 
-        GUILayout.Label("IMPORTANT SINON CA MARCHE PAS , selectionner dans 'Asset' ");
+        sprt = (Sprite)EditorGUILayout.ObjectField("Quel sprite de fond ? ", sprt, typeof(Sprite), true);
+
+        GUILayout.Label("IMPORTANT SINON CA MARCHE PAS ");
         model = (GameObject)EditorGUILayout.ObjectField("Modele de base", model, typeof(GameObject), true);
         holder = (Holder)EditorGUILayout.ObjectField("Quel holder ?", holder, typeof(Holder), true);
 
         GUILayout.Label("Code ? (une seule lettre et en majuscule)");
         code = GUILayout.TextField(code);
 
-        GUILayout.Label("Position x (entre 0 (gauche) et 1 (droite))");
+        GUILayout.Label("Position x ");
         x = EditorGUILayout.FloatField(x);
 
-        GUILayout.Label("Position y (entre 0 (bas) et 1 (haut))");
+        GUILayout.Label("Position y");
         y = EditorGUILayout.FloatField(y);
 
         x = Mathf.Clamp(x, 0, 1);
@@ -93,6 +107,14 @@ public class BisousLeo : EditorWindow {
             sequences[sequence].dI.Add(sI);
         }
 
+        if (GUILayout.Button("Supprimer la derniere frappe de la liste actuelle"))
+        {
+            if (sequences[sequence].dI.Count > 0)
+            {
+                sequences[sequence].dI.RemoveAt(sequences[sequence].dI.Count - 1);
+            }
+        }
+
         if (GUILayout.Button("Liste de frappe suivante"))
         {
             sequence++;
@@ -100,6 +122,11 @@ public class BisousLeo : EditorWindow {
             {
                 sequences.Add(new SequenceInput());
             }
+        }
+
+        if (GUILayout.Button("Liste de frappe precedente"))
+        {
+            sequence = Mathf.Max(0, sequence - 1);
         }
 
         EditorGUILayout.LabelField("Index : " + sequence.ToString());
@@ -121,6 +148,7 @@ public class BisousLeo : EditorWindow {
         {
             GameObject instance;
             instance = Instantiate(model);
+            instance.name = nameObject;
             Scenette scn = instance.GetComponent<Scenette>();
             scn.sequencesToDo = new List<SequenceInput>(sequences);
             scn.speedBandeauMultipler = vitesseBandeauMultipler;
@@ -129,6 +157,8 @@ public class BisousLeo : EditorWindow {
             scn.failClic = clpFail;
             scn.successClic = clpSuccess;
             scn.successScenette = clpSuccessScenette;
+            scn.animPourHero = anim;
+            scn.backgroundSprite = sprt;
 
             holder.scenetteListTemp.Add(instance);
             sequences = new List<SequenceInput>();
@@ -137,12 +167,6 @@ public class BisousLeo : EditorWindow {
         if (GUILayout.Button("Supprimer la liste"))
         {
             holder.GetComponent<Holder>().scenetteListTemp.Clear();
-        }
-
-        evaluate = (GameObject)EditorGUILayout.ObjectField("Quel objet ?", evaluate, typeof(GameObject), true);
-        if (evaluate != null)
-        {
-            EditorGUILayout.LabelField(Holder.worldPointToRatio(evaluate.transform.position).ToString());
         }
 
     }

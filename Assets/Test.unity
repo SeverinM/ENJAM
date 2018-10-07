@@ -242,9 +242,9 @@ MonoBehaviour:
     - kc: 114
       tFX: {fileID: 0}
       wPos: {x: -0.45, y: -4}
-  timeBeforeNext: 1
-  speedBandeauMultipler: 3
-  mutliplerSpeedEnter: 3
+  timeBeforeNext: 3
+  speedBandeauMultipler: 2
+  mutliplerSpeedEnter: 1
   inputPressed: 0
   hero: {fileID: 1247282692}
   decor: {fileID: 1305429387}
@@ -404,7 +404,7 @@ MonoBehaviour:
   soundsFail:
   - {fileID: 8300000, guid: 501e637c7ec3a114c9a11c52abe5ac95, type: 3}
   shake: 0
-  decreaseFactor: 0
+  decreaseFactor: 5
 --- !u!1 &554149312
 GameObject:
   m_ObjectHideFlags: 0

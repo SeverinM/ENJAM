@@ -69,6 +69,7 @@ public class Holder : MonoBehaviour {
         currentScenette = GameObject.Find("ScenetteTest").GetComponent<Scenette>();
         currentScenette.Fail += fail;
         currentScenette.Sucess += succ;
+        setSpeed(currentScenette.speedBandeauMultipler);
 
         gobTimer = Instantiate(prefabTimer, this.transform) as GameObject;
         gobHonor = Instantiate(prefabHonor, transform);
@@ -143,8 +144,16 @@ public class Holder : MonoBehaviour {
             currentScenette.Sucess += succ;
             currentScenette.Fail += fail;
             currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
-            currentScenette.init();
+            setSpeed(currentScenette.speedBandeauMultipler);
         }
+       
+
+        if (allScenette.Count > 0)
+        {
+            currentScenette.GetComponent<Animator>().SetFloat("speed", allScenette.ToArray()[0].GetComponent<Scenette>().mutliplerSpeedEnter);
+        }
+
+        currentScenette.init();
     }
 
 

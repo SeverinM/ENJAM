@@ -84,6 +84,8 @@ public class Scenette : MonoBehaviour {
             successScenette = hold.soundsSuccess[Random.Range(0, hold.soundsSuccess.Count - 1)];
         }
 
+        Debug.Log(successClic);
+
         this.transform.position -= Vector3.forward;
         if(!startScene)
             Holder.instance.setTime(duration, true);
@@ -214,6 +216,9 @@ public class Scenette : MonoBehaviour {
                 wrongChar = 0;
                 Holder.instance.honor -= Holder.instance.honorLosePerTouch;
                 Holder.instance.Play(failClic);
+
+                //Ca fait bugger
+                //Holder.instance.shake = 1;
             }
             Holder.instance.setTime(timeRemain, false);
             yield return new WaitForSeconds(0.1f);

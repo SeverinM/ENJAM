@@ -93,6 +93,7 @@ public class Holder : MonoBehaviour {
 
         //Start Game  :
         currentScenette.init();
+        currentScenette.startSequenceSequence();
     }
 
     public void setText(int nb)

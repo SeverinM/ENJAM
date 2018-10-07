@@ -39,7 +39,7 @@ public class Holder : MonoBehaviour {
 
     [Header("Gestion des scenettes")]
     public List<GameObject> scenetteListTemp = new List<GameObject>();
-    Queue<GameObject> allScenette;
+    public Queue<GameObject> allScenette;
     Scenette currentScenette;
     Scenette destroyingScenette;
 
@@ -54,6 +54,10 @@ public class Holder : MonoBehaviour {
     public AudioClip failClic;
     public List<AudioClip> soundsSuccess;
     public List<AudioClip> soundsFail;
+
+    [Header("Ecran secoué")]
+    public float shake = 1;
+    public float decreaseFactor = 1;
 
 
     private void Start()
@@ -189,6 +193,16 @@ public class Holder : MonoBehaviour {
         {
             rectHonor.anchorMax = new Vector2(rectHonor.anchorMin.x + ((honor / honorMax) * xDiffHonor), rectHonor.anchorMax.y);
         }
+
+        if (shake > 0)
+        {
+            Camera.main.transform.localPosition = Random.insideUnitSphere * shake;
+            shake -= Time.deltaTime * decreaseFactor;
+        }
+        else
+        {
+            shake = 0.0f;
+        }
     }
 
     public static Holder getInstance()
@@ -251,4 +265,5 @@ public class Holder : MonoBehaviour {
         output = new Vector3(point.x / Screen.width, point.y / Screen.height, 0);
         return output;
     }
+
 }

@@ -389,6 +389,35 @@ MonoBehaviour:
   honorLosePerTouch: 10
   honorMaxPerWin: 20
   gobHonor2: {fileID: 1294316253}
+  grd:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0.035849094, a: 1}
+    key1: {r: 0, g: 0.15980196, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   scenetteListTemp:
   - {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
@@ -1257,6 +1286,7 @@ MonoBehaviour:
   nuitSemaine:
   - {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
   - {fileID: 1709095607084942, guid: 4f9f33d850aecbc4f87780b75a3a38d2, type: 2}
+  - {fileID: 1380803265886858, guid: f270c4f664e4e1b40bdc044a7a2c0ef2, type: 2}
   jourSemaine:
   - {fileID: 1515916613158210, guid: ca509c860a54a1c4cb35c0ee671882d5, type: 2}
   - {fileID: 1624982078352482, guid: ba4d45a3cf27c9b48adff17d4d5fb882, type: 2}
@@ -1264,6 +1294,7 @@ MonoBehaviour:
   - {fileID: 1325625887416034, guid: acbe680c290704a478c125689d0adfa6, type: 2}
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
   - {fileID: 1794583215388840, guid: 4a892d60bab5d6b4484f25dbe912f519, type: 2}
+  - {fileID: 1380803265886858, guid: f8a1fa2546f6dd542b468dea01beeb0d, type: 2}
   nombre: 10
 --- !u!4 &1463892059
 Transform:
@@ -1623,7 +1654,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bf019e789dc64df438398fdbd75c0dfa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

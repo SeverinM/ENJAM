@@ -390,7 +390,7 @@ MonoBehaviour:
   honorLosePerTouch: 10
   honorMaxPerWin: 20
   scenetteListTemp:
-  - {fileID: 1959103841173734, guid: 0d963b1e9bc2b5e498ed1d7fd32b7193, type: 2}
+  - {fileID: 1930854186241050, guid: 2b791574819a56a4ebde324a126feef2, type: 2}
   prefabBandeau: {fileID: 1429722363088972, guid: 966e7aee3ab33dc49bf53b956ce0e405,
     type: 2}
   successClic: {fileID: 8300000, guid: 49a3395e4c7727245b77097d1c1001df, type: 3}

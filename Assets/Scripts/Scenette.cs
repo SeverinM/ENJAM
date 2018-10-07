@@ -16,7 +16,7 @@ public class Scenette : MonoBehaviour {
     public bool startScene = false;
     public bool falseScene = false;
     public bool stickmou = false;
-    //visual
+    //Visual
     public Sprite backgroundSprite;
     public string textDefeat = "No !";
     public string textVictory = "Yes !";

@@ -374,9 +374,9 @@ MonoBehaviour:
   backgroundSprite: {fileID: 21300000, guid: 9e230e256a6da544a8f5726062f3c2fb, type: 3}
   textDefeat: My weakness disgusts me
   textVictory: To be continued !
-  textSizeVictory: 20
-  textSizeDefeat: 10
-  animPourHero: 0
+  textSizeVictory: 15
+  textSizeDefeat: 15
+  animPourHero: 7
   duration: 5
   finish: 0
   isWE: 0
@@ -421,8 +421,8 @@ MonoBehaviour:
     - kc: 121
       tFX: {fileID: 0}
       wPos: {x: -6, y: -1}
-  timeBeforeNext: 2
-  speedBandeauMultipler: 1.2
+  timeBeforeNext: 1.5
+  speedBandeauMultipler: 2
   mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114796817623938746}

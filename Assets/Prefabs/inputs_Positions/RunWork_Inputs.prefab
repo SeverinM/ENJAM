@@ -372,10 +372,10 @@ MonoBehaviour:
   falseScene: 0
   stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 940ded6108a36d34c904ac74aa672593, type: 3}
-  textDefeat: I knew I should have used the Naruto run
+  textDefeat: I knew I should have \j used the Naruto run
   textVictory: Too fast, too furious
-  textSizeVictory: 30
-  textSizeDefeat: 30
+  textSizeVictory: 15
+  textSizeDefeat: 15
   animPourHero: 6
   duration: 5
   finish: 0
@@ -417,8 +417,8 @@ MonoBehaviour:
     - kc: 116
       tFX: {fileID: 0}
       wPos: {x: 7.7, y: -2}
-  timeBeforeNext: 2
-  speedBandeauMultipler: 1.2
+  timeBeforeNext: 1.5
+  speedBandeauMultipler: 2
   mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114529741749641192}

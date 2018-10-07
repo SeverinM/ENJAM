@@ -420,7 +420,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   scenetteListTemp:
-  - {fileID: 1972611973388054, guid: e955df1c0772d5947a6d07084750e23a, type: 2}
+  - {fileID: 1033910384111500, guid: 682df102872710945b9e9e07ea9519e9, type: 2}
   victoire: {fileID: 1518506589080430, guid: 3ec96580a2ae77740b8e0d53f16360ec, type: 2}
   defaite: {fileID: 1821521040789182, guid: 5c65a02b2b55d744186db80f9dbbcc3f, type: 2}
   currentScenette: {fileID: 0}
@@ -1127,6 +1127,7 @@ MonoBehaviour:
   - {fileID: 1405918382791744, guid: d5dca8e36df5cce40841ea7ae78a5f47, type: 2}
   - {fileID: 1380803265886858, guid: f8a1fa2546f6dd542b468dea01beeb0d, type: 2}
   - {fileID: 1440048360891270, guid: ac5207f56f6e7a143af644ea22e54b52, type: 2}
+  - {fileID: 1033910384111500, guid: 682df102872710945b9e9e07ea9519e9, type: 2}
   nuitWE:
   - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
   jourWE:

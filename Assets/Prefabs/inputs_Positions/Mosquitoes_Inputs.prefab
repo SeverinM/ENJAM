@@ -401,9 +401,9 @@ MonoBehaviour:
     - kc: 104
       tFX: {fileID: 0}
       wPos: {x: 5, y: -3.2}
-  timeBeforeNext: 1
-  speedBandeauMultipler: 1
-  mutliplerSpeedEnter: 1
+  timeBeforeNext: 1.5
+  speedBandeauMultipler: 2
+  mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114482088992775860}
   decor: {fileID: 212170134169383118}

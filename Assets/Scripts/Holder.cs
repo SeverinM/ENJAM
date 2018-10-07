@@ -25,6 +25,7 @@ public class Holder : MonoBehaviour {
     public Camera mainCamera;
 
 
+
     [Header("Honneur")]
     [SerializeField]
     public float honor;
@@ -45,6 +46,7 @@ public class Holder : MonoBehaviour {
     public Queue<GameObject> allScenette;
     Scenette currentScenette;
     Scenette destroyingScenette;
+    public GameObject moustiqueGO;
 
     [Header("Bandeau")]
     public GameObject prefabBandeau;

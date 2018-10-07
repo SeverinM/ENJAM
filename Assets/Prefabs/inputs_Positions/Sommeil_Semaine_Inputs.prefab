@@ -369,6 +369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene: 0
+  falseScene: 0
+  stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 6a2b5d69dc52d364e9289d75208509ff, type: 3}
   textDefeat: "I didn\u2019t deserve to sleep anyway"
   textVictory: Finally, some good fucking sleep

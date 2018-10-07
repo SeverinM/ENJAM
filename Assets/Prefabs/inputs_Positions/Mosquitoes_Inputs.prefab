@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startScene: 0
   falseScene: 0
+  stickmou: 1
   backgroundSprite: {fileID: 21300000, guid: a580c42d25bd9d44089ad52614196bfe, type: 3}
   textDefeat: I am but a worthless insect
   textVictory: ORA ORA ORA ORA ORA !!

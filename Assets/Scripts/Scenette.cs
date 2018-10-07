@@ -15,6 +15,7 @@ public class Scenette : MonoBehaviour {
     [Header("Data")]
     public bool startScene = false;
     public bool falseScene = false;
+    public bool stickmou = false;
     //visual
     public Sprite backgroundSprite;
     public string textDefeat = "No !";
@@ -187,6 +188,10 @@ public class Scenette : MonoBehaviour {
             {
                 ToucheFX tf = Holder.instance.getKeyFx(dI.kc, dI.wPos).GetComponent<ToucheFX>();
                 dI.tFX = tf;
+                if (stickmou)
+                {
+                    dI.tFX.Stickmou();
+                }
             }
         }
     }

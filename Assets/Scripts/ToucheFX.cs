@@ -11,6 +11,10 @@ public class ToucheFX : MonoBehaviour {
     private Animator _anima;
     private RectTransform _rectTransform;
 
+    private Vector2 realPosition;
+    private Vector3 offset = new Vector3(-3.4f,-4.1f,-4f);
+    private Animator moustiqueLinked;
+
     public void Awake()
     {
         _anima = this.GetComponent<Animator>();
@@ -21,11 +25,12 @@ public class ToucheFX : MonoBehaviour {
 
     public void init(Vector2 worldPosition, string c )
     {
-        GameObject child = transform.GetChild(0).gameObject;
         textChar.text = c;
 
         Vector3 positionScreen = Holder.instance.mainCamera.WorldToScreenPoint(worldPosition);
         _rectTransform.position = positionScreen;
+
+        realPosition = worldPosition;
     }
 
 
@@ -33,10 +38,14 @@ public class ToucheFX : MonoBehaviour {
     {
         //Debug.Log("Sucess "+Time.timeSinceLevelLoad);
         _anima.SetTrigger("success");
+        if (moustiqueLinked != null)
+            moustiqueLinked.SetTrigger("death");
     }
 
     public void launchFail()
     {
+        if (moustiqueLinked != null)
+            Destroy(moustiqueLinked.gameObject);
         _anima.SetTrigger("fail");
     }
 
@@ -45,4 +54,11 @@ public class ToucheFX : MonoBehaviour {
     {
         this.gameObject.SetActive(false);
     }
+
+    public void Stickmou()
+    {
+        print("Moustique !");
+        moustiqueLinked = Instantiate(Holder.instance.moustiqueGO, (Vector3)realPosition + offset, Quaternion.identity).GetComponent<Animator>();
+    }
+
 }

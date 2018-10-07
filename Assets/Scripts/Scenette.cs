@@ -82,14 +82,19 @@ public class Scenette : MonoBehaviour {
 
         this.transform.position -= Vector3.forward;
         print("init by scenette, parfum pour bit");
-        if (!startScene)
-            timerCoroutine = StartCoroutine(timerOfDuration(duration));
-
+        if(!startScene)
+            Holder.instance.setTime(duration, true);
         decor.sprite = backgroundSprite;
         hero.setAnimator(animPourHero);
 
         inputPressed = false;
         currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
+    }
+
+    public void startSequenceSequence()
+    {
+        if (!startScene)
+            timerCoroutine = StartCoroutine(timerOfDuration(duration));
         nextSequence();
     }
 
@@ -97,7 +102,7 @@ public class Scenette : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (!finish)
+        if (!finish && currentSequenceIndex != -1)
         {
             InputHandling();
         }

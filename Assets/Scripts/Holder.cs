@@ -92,6 +92,7 @@ public class Holder : MonoBehaviour {
 
         //Start Game  :
         currentScenette.init();
+        currentScenette.startSequenceSequence();
     }
 
     public void setText(int nb)
@@ -138,7 +139,7 @@ public class Holder : MonoBehaviour {
         obj = allScenette.Dequeue();
         obj.SetActive(true);
         currentScenette = Instantiate(obj).GetComponent<Scenette>();
-        //currentScenette.init(); // not made by him
+        currentScenette.init();
         currentScenette.GetComponent<Animator>().speed = currentScenette.mutliplerSpeedEnter;
 
         if (allScenette.Count > 0)

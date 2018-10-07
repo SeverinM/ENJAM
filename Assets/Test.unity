@@ -384,10 +384,10 @@ MonoBehaviour:
   prefabInstanceToucheFX: {fileID: 1166849707445052, guid: a1395376d687c61408ad43f7b5f8db40,
     type: 2}
   mainCamera: {fileID: 1898819103}
-  honor: 95
+  honor: 70
   prefabHonor: {fileID: 1599562243674946, guid: 883bf45efeca4734282788b60aed5918,
     type: 2}
-  honorLosePerTouch: 10
+  honorLosePerTouch: 3
   honorMaxPerWin: 20
   gobHonor2: {fileID: 1294316253}
   grd:

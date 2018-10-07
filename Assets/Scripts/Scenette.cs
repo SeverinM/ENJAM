@@ -14,6 +14,7 @@ public class Scenette : MonoBehaviour {
     
     [Header("Data")]
     public bool startScene = false;
+    public bool falseScene = false;
     //visual
     public Sprite backgroundSprite;
     public string textDefeat = "No !";
@@ -52,8 +53,13 @@ public class Scenette : MonoBehaviour {
     public AudioClip failClic;
     public AudioClip successClic;
     public AudioClip successScenette;
-    
-    
+
+    public void Awake()
+    {
+        if (falseScene)
+            startScene = falseScene;
+    }
+
     public void init()
     {
         //print("init by scenette, parfum pour bit");
@@ -90,7 +96,8 @@ public class Scenette : MonoBehaviour {
         if(!startScene)
             Holder.instance.setTime(duration, true);
         decor.sprite = backgroundSprite;
-        hero.setAnimator(animPourHero);
+        if(!falseScene)
+            hero.setAnimator(animPourHero);
 
         inputPressed = false;
         currentSequenceIndex = -1;//car on fait un index++ au debut de next sequence
@@ -100,7 +107,8 @@ public class Scenette : MonoBehaviour {
     {
         if (!startScene)
             timerCoroutine = StartCoroutine(timerOfDuration(duration));
-        nextSequence();
+        if(!falseScene)
+            nextSequence();
 
         //test holder part :
         Holder.instance.activate();
@@ -110,7 +118,7 @@ public class Scenette : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (!finish && currentSequenceIndex != -1)
+        if (!finish && currentSequenceIndex != -1 && !falseScene)
         {
             InputHandling();
         }

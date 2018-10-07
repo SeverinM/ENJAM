@@ -24,11 +24,8 @@ public class ToucheFX : MonoBehaviour {
         GameObject child = transform.GetChild(0).gameObject;
         textChar.text = c;
 
-        /*ector3 positionScreen = Holder.instance.mainCamera.WorldToScreenPoint(worldPosition);
-         Vector2 screenPos = new Vector2(positionScreen.x / Screen.width, positionScreen.y / Screen.height);*/
-        _rectTransform.anchorMax = worldPosition;
-        _rectTransform.anchorMin = worldPosition;
-        _rectTransform.anchoredPosition = new Vector3(0, 0, 0);
+        Vector3 positionScreen = Holder.instance.mainCamera.WorldToScreenPoint(worldPosition);
+        _rectTransform.position = positionScreen;
     }
 
 

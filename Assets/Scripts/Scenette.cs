@@ -15,10 +15,8 @@ public class Scenette : MonoBehaviour {
     [Header("Data")]
     public bool startScene = false;
     //visual
-    [SerializeField]
-    private Sprite backgroundSprite;
-    [SerializeField]
-    private animHero animPourHero = animHero.attaqueAuDoigt;
+    public Sprite backgroundSprite;
+    public animHero animPourHero = animHero.attaqueAuDoigt;
     [SerializeField]
     float duration = 5;
     private Coroutine timerCoroutine;

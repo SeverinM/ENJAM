@@ -33,6 +33,8 @@ public class Holder : MonoBehaviour {
     GameObject gobHonor;
     RectTransform rectHonor;
     float yDiffHonor;
+    public RectTransform rectModel;
+    public RectTransform rectToResize;
     public Gradient grd;
 
 
@@ -58,6 +60,7 @@ public class Holder : MonoBehaviour {
     public List<AudioClip> soundsFail;
     public List<AudioClip> next;
     public AudioClip failSound;
+    public AudioSource semaine;
 
     [Header("Ecran secoué")]
     public float shake = 1;
@@ -80,9 +83,13 @@ public class Holder : MonoBehaviour {
         gobTimer = Instantiate(prefabTimer, this.transform) as GameObject;
         gobHonor = Instantiate(prefabHonor, transform);
 
-        rectHonor = gobHonor.transform.GetChild(0).GetComponent<RectTransform>();
+        rectHonor    = gobHonor.transform.GetChild(1).GetComponent<RectTransform>();
+        rectModel    = gobHonor.transform.GetChild(0).GetComponent<RectTransform>();
+        rectToResize = gobHonor.transform.GetChild(1).GetChild(0).GetComponent<RectTransform>();
 
         yDiffHonor = rectHonor.anchorMax.y - rectHonor.anchorMin.y;
+        
+        rectToResize.sizeDelta = rectModel.rect.size;//.sizeDelta;
 
         if (instance != null)
         {
@@ -165,6 +172,7 @@ public class Holder : MonoBehaviour {
         }
        
         isWE = currentScenette.isWE;
+        semaine.volume = isWE ? 0 : 1;
         gobTimer.SetActive(!currentScenette.falseScene);
         currentScenette.init();
     }
@@ -212,6 +220,8 @@ public class Holder : MonoBehaviour {
         if (gobHonor.activeSelf)
         {
             rectHonor.anchorMax = new Vector2(rectHonor.anchorMax.x,rectHonor.anchorMin.y + ((honor / honorMax) * yDiffHonor));
+            rectToResize.sizeDelta = rectModel.rect.size;
+            print(rectModel.sizeDelta + " rectModel.sizeDelta");
             gobHonor.GetComponent<UnityEngine.UI.Image>().color = grd.Evaluate(honor / honorMax);
         }
 

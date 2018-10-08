@@ -59,6 +59,8 @@ public class ToucheFX : MonoBehaviour {
     //getCall by the animation ! 
     public void endAnimation()
     {
+        if (moustiqueLinked != null)
+            Destroy(moustiqueLinked.gameObject);
         this.gameObject.SetActive(false);
     }
 

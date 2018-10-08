@@ -377,7 +377,7 @@ MonoBehaviour:
   textSizeVictory: 20
   textSizeDefeat: 20
   animPourHero: 8
-  duration: 5
+  duration: 7
   finish: 0
   isWE: 0
   sequencesToDo:

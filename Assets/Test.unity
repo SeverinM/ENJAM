@@ -187,6 +187,130 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1 &130680283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 130680285}
+  - component: {fileID: 130680284}
+  m_Layer: 0
+  m_Name: Son
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &130680284
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130680283}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &130680285
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130680283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -68.52222, y: 18.556896, z: -0.107654445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280980377
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +563,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b77156ae7ad19ed47bfaa8a6b8b26f56, type: 3}
   - {fileID: 8300000, guid: b7e848a74885e2d499c055ab64aaf29b, type: 3}
   failSound: {fileID: 8300000, guid: de97a60a4942e934e88d568d11465a6c, type: 3}
+  WEMusic: {fileID: 2099387115}
+  weekMusic: {fileID: 1839510694}
   shake: 0
   decreaseFactor: 5
   minimum: 0
@@ -1127,12 +1253,13 @@ MonoBehaviour:
   - {fileID: 1380803265886858, guid: f8a1fa2546f6dd542b468dea01beeb0d, type: 2}
   - {fileID: 1440048360891270, guid: ac5207f56f6e7a143af644ea22e54b52, type: 2}
   - {fileID: 1033910384111500, guid: 682df102872710945b9e9e07ea9519e9, type: 2}
+  - {fileID: 1517743409573566, guid: b18eed0f9802f7b48b69471acefe7d0c, type: 2}
   nuitWE:
   - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
   jourWE:
   - {fileID: 1618206438773834, guid: 1df12590c6b862f4abb33549508e13f0, type: 2}
   - {fileID: 1794583215388840, guid: 4a892d60bab5d6b4484f25dbe912f519, type: 2}
-  nombre: 2
+  nombre: 4
 --- !u!4 &1463892059
 Transform:
   m_ObjectHideFlags: 0
@@ -1292,7 +1419,7 @@ GameObject:
   - component: {fileID: 1839510695}
   - component: {fileID: 1839510694}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: ZikSemaine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1672,7 +1799,7 @@ GameObject:
   - component: {fileID: 2099387116}
   - component: {fileID: 2099387115}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ZikWE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

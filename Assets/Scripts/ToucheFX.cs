@@ -66,7 +66,7 @@ public class ToucheFX : MonoBehaviour {
 
     public void Stickmou()
     {
-        print("Moustique !");
+        //print("Moustique !");
         moustiqueLinked = Instantiate(Holder.instance.moustiqueGO, (Vector3)realPosition + offset, Quaternion.identity).GetComponent<Animator>();
     }
 

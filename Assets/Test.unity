@@ -386,7 +386,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 280980377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 554149313}
@@ -511,8 +511,8 @@ MonoBehaviour:
   honor: 70
   prefabHonor: {fileID: 1736696224892464, guid: 883bf45efeca4734282788b60aed5918,
     type: 2}
-  honorLosePerTouch: 5
-  honorMaxPerWin: 20
+  honorLosePerTouch: 4
+  honorMaxPerWin: 30
   gobHonor: {fileID: 0}
   rectModel: {fileID: 0}
   rectToResize: {fileID: 0}
@@ -567,7 +567,6 @@ MonoBehaviour:
   failSound: {fileID: 8300000, guid: de97a60a4942e934e88d568d11465a6c, type: 3}
   WEMusic: {fileID: 2099387115}
   weekMusic: {fileID: 1839510694}
-  semaine: {fileID: 1839510694}
   shake: 0
   decreaseFactor: 5
   minimum: 0
@@ -1257,7 +1256,6 @@ MonoBehaviour:
   - {fileID: 1380803265886858, guid: f8a1fa2546f6dd542b468dea01beeb0d, type: 2}
   - {fileID: 1440048360891270, guid: ac5207f56f6e7a143af644ea22e54b52, type: 2}
   - {fileID: 1033910384111500, guid: 682df102872710945b9e9e07ea9519e9, type: 2}
-  - {fileID: 1517743409573566, guid: b18eed0f9802f7b48b69471acefe7d0c, type: 2}
   nuitWE:
   - {fileID: 1146193780024424, guid: bfdc339ac49e04c4482b4633a5d71cff, type: 2}
   jourWE:
@@ -1275,7 +1273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608578003
 GameObject:
@@ -1535,7 +1533,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898819100
 GameObject:
@@ -1915,5 +1913,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

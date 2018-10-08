@@ -184,7 +184,7 @@ public class Scenette : MonoBehaviour {
             Holder.instance.Play(successScenette);
             if (!isWE)
             {
-                Debug.Log((timeRemain / duration) * Holder.instance.honorMaxPerWin);
+                //Debug.Log((timeRemain / duration) * Holder.instance.honorMaxPerWin);
                 Holder.instance.honor += (timeRemain / duration) * Holder.instance.honorMaxPerWin;
             }             
         }

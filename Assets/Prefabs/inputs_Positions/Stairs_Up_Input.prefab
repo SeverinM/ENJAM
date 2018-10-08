@@ -382,43 +382,43 @@ MonoBehaviour:
   isWE: 0
   sequencesToDo:
   - dI:
-    - kc: 119
+    - kc: 97
       tFX: {fileID: 0}
       wPos: {x: -2, y: -5}
     - kc: 115
       tFX: {fileID: 0}
       wPos: {x: -4, y: -3}
-    - kc: 101
+    - kc: 99
       tFX: {fileID: 0}
       wPos: {x: -6, y: -1}
   - dI:
-    - kc: 120
+    - kc: 122
       tFX: {fileID: 0}
       wPos: {x: -2, y: -5}
     - kc: 100
       tFX: {fileID: 0}
       wPos: {x: -4, y: -3}
-    - kc: 114
+    - kc: 118
       tFX: {fileID: 0}
       wPos: {x: -6, y: -1}
   - dI:
-    - kc: 99
+    - kc: 101
       tFX: {fileID: 0}
       wPos: {x: -2, y: -5}
     - kc: 102
       tFX: {fileID: 0}
       wPos: {x: -4, y: -3}
-    - kc: 116
+    - kc: 98
       tFX: {fileID: 0}
       wPos: {x: -6, y: -1}
   - dI:
-    - kc: 118
+    - kc: 114
       tFX: {fileID: 0}
       wPos: {x: -2, y: -5}
     - kc: 103
       tFX: {fileID: 0}
       wPos: {x: -4, y: -3}
-    - kc: 121
+    - kc: 110
       tFX: {fileID: 0}
       wPos: {x: -6, y: -1}
   timeBeforeNext: 1.5

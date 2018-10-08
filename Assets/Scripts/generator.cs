@@ -54,6 +54,8 @@ public class generator : MonoBehaviour {
 
     public GameObject randomChoice(List<GameObject> gob)
     {
-        return gob[Random.Range(0, gob.Count - 1)];
+        int rando = Random.Range(0, gob.Count);
+        print(rando + " / "+ gob.Count);
+        return gob[rando];
     }
 }

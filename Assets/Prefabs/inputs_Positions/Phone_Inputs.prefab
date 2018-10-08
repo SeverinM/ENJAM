@@ -376,7 +376,7 @@ MonoBehaviour:
   textVictory: I will call everyone I know to \j let them know of fast I am
   textSizeVictory: 15
   textSizeDefeat: 10
-  animPourHero: 0
+  animPourHero: 4
   duration: 8
   finish: 0
   isWE: 0

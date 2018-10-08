@@ -62,7 +62,6 @@ public class Holder : MonoBehaviour {
     public AudioClip failSound;
     public AudioSource WEMusic;
     public AudioSource weekMusic;
-    public AudioSource semaine;
 
     [Header("Ecran secoué")]
     public float shake = 1;
@@ -92,6 +91,7 @@ public class Holder : MonoBehaviour {
         yDiffHonor = rectHonor.anchorMax.y - rectHonor.anchorMin.y;
         
         rectToResize.sizeDelta = rectModel.rect.size;//.sizeDelta;
+        rectToResize.position = rectModel.position;
 
         if (instance != null)
         {
@@ -174,27 +174,10 @@ public class Holder : MonoBehaviour {
         }
        
         isWE = currentScenette.isWE;
-        semaine.volume = isWE ? 0 : 1;
+        weekMusic.volume = isWE ? 0 : 1;
         gobTimer.SetActive(!currentScenette.falseScene);
         currentScenette.init();
-
-        if (currentScenette.isWE && !WEMusic.isPlaying)
-        {
-            WEMusic.Play();
-            weekMusic.Stop();
-        }
-
-        if (currentScenette.isWE && !WEMusic.isPlaying)
-        {
-            WEMusic.enabled = true;
-            weekMusic.enabled = false;
-        }
-
-        if (!currentScenette.isWE && !weekMusic.isPlaying)
-        {
-            weekMusic.enabled = true;
-            WEMusic.enabled = false;
-        }
+        
     }
 
 
@@ -241,7 +224,6 @@ public class Holder : MonoBehaviour {
         {
             rectHonor.anchorMax = new Vector2(rectHonor.anchorMax.x,rectHonor.anchorMin.y + ((honor / honorMax) * yDiffHonor));
             rectToResize.sizeDelta = rectModel.rect.size;
-            print(rectModel.sizeDelta + " rectModel.sizeDelta");
             gobHonor.GetComponent<UnityEngine.UI.Image>().color = grd.Evaluate(honor / honorMax);
         }
 

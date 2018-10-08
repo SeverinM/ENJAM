@@ -60,6 +60,8 @@ public class Holder : MonoBehaviour {
     public List<AudioClip> soundsFail;
     public List<AudioClip> next;
     public AudioClip failSound;
+    public AudioSource WEMusic;
+    public AudioSource weekMusic;
     public AudioSource semaine;
 
     [Header("Ecran secoué")]
@@ -71,7 +73,7 @@ public class Holder : MonoBehaviour {
 
     private void Start()
     {
-        audio = GameObject.FindObjectOfType<AudioSource>();
+        audio = GameObject.Find("Son").GetComponent<AudioSource>();
         allScenette = new Queue<GameObject>(scenetteListTemp);
 
 
@@ -175,6 +177,24 @@ public class Holder : MonoBehaviour {
         semaine.volume = isWE ? 0 : 1;
         gobTimer.SetActive(!currentScenette.falseScene);
         currentScenette.init();
+
+        if (currentScenette.isWE && !WEMusic.isPlaying)
+        {
+            WEMusic.Play();
+            weekMusic.Stop();
+        }
+
+        if (currentScenette.isWE && !WEMusic.isPlaying)
+        {
+            WEMusic.enabled = true;
+            weekMusic.enabled = false;
+        }
+
+        if (!currentScenette.isWE && !weekMusic.isPlaying)
+        {
+            weekMusic.enabled = true;
+            WEMusic.enabled = false;
+        }
     }
 
 

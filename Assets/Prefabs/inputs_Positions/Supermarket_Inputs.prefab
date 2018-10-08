@@ -372,12 +372,12 @@ MonoBehaviour:
   falseScene: 0
   stickmou: 0
   backgroundSprite: {fileID: 21300000, guid: 65909f41a75c28649a79faab96308f6c, type: 3}
-  textDefeat: Hunger will be my punishment for being so weak
-  textVictory: "This will keep me stuffed for at least a week\r"
+  textDefeat: Hunger will be my punishment \j for being so weak
+  textVictory: "This will keep me stuffed \\j for at least a week\r"
   textSizeVictory: 15
   textSizeDefeat: 15
   animPourHero: 0
-  duration: 5
+  duration: 7
   finish: 0
   isWE: 0
   sequencesToDo:
@@ -420,9 +420,9 @@ MonoBehaviour:
     - kc: 118
       tFX: {fileID: 0}
       wPos: {x: -2, y: -1}
-  timeBeforeNext: 1
-  speedBandeauMultipler: 1
-  mutliplerSpeedEnter: 1
+  timeBeforeNext: 1.5
+  speedBandeauMultipler: 2
+  mutliplerSpeedEnter: 2
   inputPressed: 0
   hero: {fileID: 114126223302226344}
   decor: {fileID: 212795636322044094}

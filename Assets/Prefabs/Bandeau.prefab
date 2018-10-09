@@ -266,9 +266,12 @@ MonoBehaviour:
   finalZ: -10
   WE: {fileID: 21300000, guid: 37e4386bcd5c2824c8f256bc02df82fc, type: 3}
   week: {fileID: 21300000, guid: f72581bc6ef2dfc41955abc9a161b396, type: 3}
+  bgVictory: {fileID: 21300000, guid: ecde7db8eb9476448bc6aa3d3af857a4, type: 3}
+  bgDefeat: {fileID: 21300000, guid: ecde7db8eb9476448bc6aa3d3af857a4, type: 3}
   victory: {r: 1, g: 0.89411765, b: 0.60784316, a: 1}
-  defeat: {r: 0.033978574, g: 0.017248003, b: 0.077, a: 1}
+  defeat: {r: 0, g: 0, b: 0, a: 1}
   toChange: {fileID: 212071887978873026}
+  toChangeBG: {fileID: 212782188614170812}
   transitionText: {fileID: 102696040863674616}
 --- !u!212 &212071887978873026
 SpriteRenderer:

@@ -17,6 +17,12 @@ public class Bandeaux : MonoBehaviour {
     Sprite week;
 
     [SerializeField]
+    Sprite bgVictory;
+
+    [SerializeField]
+    Sprite bgDefeat;
+
+    [SerializeField]
     Color victory;
 
     [SerializeField]
@@ -24,7 +30,10 @@ public class Bandeaux : MonoBehaviour {
 
     [SerializeField]
     SpriteRenderer toChange;
-    
+
+    [SerializeField]
+    SpriteRenderer toChangeBG;
+
     [SerializeField]
     TextMesh transitionText;
 
@@ -40,6 +49,7 @@ public class Bandeaux : MonoBehaviour {
     public void init(bool isWE , bool isDefeat, string txt, int sizeTxt = 15)
     {
         GetComponent<SpriteRenderer>().color = isDefeat ? defeat : victory;
+        toChangeBG.sprite = isDefeat ? bgDefeat : bgVictory;
         txt = txt.Replace("\\j", "\n");
         transitionText.text = txt;
         transitionText.fontSize = sizeTxt;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bandeaux : MonoBehaviour {
 
 
-    //nope, not at all
+    //Lol jambe 
 
     public AnimationCurve curve;
     public float maxTime;

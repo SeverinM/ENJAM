@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Bandeaux : MonoBehaviour {
 
-
-    //Uke < seme
-
     public AnimationCurve curve;
     public float maxTime;
     float time = 0;
